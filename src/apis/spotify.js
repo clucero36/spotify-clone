@@ -17,7 +17,7 @@ export function requestAuthorization() {
   let url = AUTHORIZE;
   url += "?client_id=" + client_id;
   url += "&response_type=code";
-  url += "&redirect_uri=" + redirect_uri;
+  url += "&redirect_uri=" + encodeURI(redirect_uri);
   url += "&scope=user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read";
   window.location.href=url;
 }
