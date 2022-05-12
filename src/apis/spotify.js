@@ -7,7 +7,6 @@ const redirect_uri = 'http://localhost:3000/redirect';
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const querystring = require('query-string');
 const baseURI = 'https://api.spotify.com/v1';
-const scope = 'user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private-user user-library-read';
 //---------------------------------------------------------------------------------------   
 //              User Auth & Access Token Request
 // 
