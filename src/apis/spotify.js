@@ -2,23 +2,24 @@ import axios from 'axios';
 
 const client_id = "f7601cac702b49db92c02678ab6c5177";
 const client_secret = "78ba61007cf64462aa84551f740d6202";
-// const redirect_uri = 'http://localhost:3000/redirect';
-const redirect_uri = 'https://spotifyditto.netlify.app/redirect/';
+const redirect_uri = 'http://localhost:3000/redirect';
+// const redirect_uri = 'https://spotifyditto.netlify.app/redirect/';
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const querystring = require('query-string');
-const baseURI = 'https://api.spotify.com/v1'
-
+const baseURI = 'https://api.spotify.com/v1';
+const scope = 'user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private-user user-library-read';
 //---------------------------------------------------------------------------------------   
 //              User Auth & Access Token Request
 // 
 // used vanilla js 
 // will implement using axios
-export function requestAuthorization() {
+export function requestAuth() {
   let url = AUTHORIZE;
   url += "?client_id=" + client_id;
   url += "&response_type=code";
   url += "&redirect_uri=" + encodeURI(redirect_uri);
   url += "&scope=user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read";
+  url += "&show_dialog=true";
   window.location.href=url;
 }
 

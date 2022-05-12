@@ -10,6 +10,7 @@ import {
 const Redirect = () => {
   const navigate = useNavigate();
 
+
   if (window.location.search) {
     handleRedirect().then((result) => {
       navigate("/landing", {

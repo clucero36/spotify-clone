@@ -4,11 +4,12 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { 
-  requestAuthorization, 
+  requestAuth, 
 } from '../apis/spotify';
 
 const Login = () => {
-  const reqAuth = requestAuthorization;
+
+  const reqAuth = requestAuth;
 
   return (
     <Box w='50%' m='0 auto' display='flex'>
