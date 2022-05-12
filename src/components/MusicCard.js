@@ -4,7 +4,6 @@ import {
   Box,
   VStack,
   Image,
-  Heading,
   Text,
 } from '@chakra-ui/react'
 
