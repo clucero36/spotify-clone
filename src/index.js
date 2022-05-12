@@ -13,7 +13,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login/' element={<Login />} />
         <Route path='/landing' element={<Landing />} />
       </Routes>
     </BrowserRouter>
