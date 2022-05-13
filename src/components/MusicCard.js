@@ -9,7 +9,6 @@ import {
 
 
 const MusicCard = (props) => {
-  console.log(props.album)
 
   return (
     <Box p='1rem' minW='130px' borderRadius='lg' bgColor='gray.900'>

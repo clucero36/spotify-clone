@@ -27,8 +27,7 @@ const Landing = props => {
   const [rnbAlbums, setRnbAlbums] = useState(null);
 
   useEffect(() => {
-
-    const getData = () => {
+    const getData = async () => {
       getUserProfile(state.access_token, state.token_type).then((result) => {
         setUserProfile(result)
       });
@@ -43,10 +42,9 @@ const Landing = props => {
       });
       getRnbAlbums(state.access_token, state.token_type).then((result) => {
         setRnbAlbums(result.albums);
-      })
+      });
     }
-    getData()
-
+    getData();
   }, [state])
 
   if (userProfile !== null && userRecents !== null && 
@@ -58,7 +56,13 @@ const Landing = props => {
           <LeftSideBar playlists={userPlaylists.items} />
         </Box>
         <Box w='80%' bgGradient='linear(to-b, purple.900 1%, black 99%)'>
-          <Header user={userProfile.id} avatar={userProfile.images[0].url} />
+          <Header 
+            user={userProfile.id} 
+            avatar={userProfile.images.length > 0 
+              ? userProfile.images[0].url
+              : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+            } 
+          />
           <RecentActivity recentTracks={userRecents.items} />
           <Artists artists={artists} />
           <MusicList albums={rnbAlbums} />
