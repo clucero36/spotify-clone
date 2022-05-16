@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  VStack,
+  Box,
   Flex,
   Text,
 } from '@chakra-ui/react';
@@ -17,15 +17,17 @@ const RecentActivity = (props) => {
   })
 
   return (
-    <VStack align='left' p='2rem'>
+    <Box align='left' p='2rem'>
       <Text fontWeight='bold' fontSize='xl' pb='.5rem'>It'll all workout</Text>
-      <Flex w='100%' m='0' justify='space-between'>
-        {renderedTopThree}
-      </Flex>
-      <Flex w='100%' m='0' justify='space-between'>
-        {renderedThreeMore}
-      </Flex>
-    </VStack>
+      <Box display='flex' flexDirection={['row', 'row', 'column', 'column', 'column']}>
+        <Flex w='100%' m='0' justify='space-between' direction={['column', 'column', 'row', 'row', 'row']}>
+          {renderedTopThree}
+        </Flex>
+        <Flex w='100%' m='0' justify='space-between' direction={['column', 'column', 'row', 'row', 'row']}>
+          {renderedThreeMore}
+        </Flex>
+      </Box>
+    </Box>
   )
 
 }

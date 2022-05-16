@@ -13,9 +13,9 @@ const Artists = (props) => {
   })
   
   return (
-    <VStack p='2rem' align='left'>
+    <VStack p='2rem' align='left' overflow='auto'>
       <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Artists You Should Listen To</Text>
-      <HStack spacing='2rem'>
+      <HStack spacing='2rem' >
         {renderedArtists}
       </HStack>
     </VStack>

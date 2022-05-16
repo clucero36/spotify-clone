@@ -7,11 +7,12 @@ const redirect_uri = 'https://spotifyditto.netlify.app/redirect/';
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const querystring = require('query-string');
 const baseURI = 'https://api.spotify.com/v1';
+
 //---------------------------------------------------------------------------------------   
 //              User Auth & Access Token Request
 // 
-// used vanilla js 
-// will implement using axios
+// 
+// used vanilla js
 export function requestAuth() {
   let url = AUTHORIZE;
   url += "?client_id=" + client_id;

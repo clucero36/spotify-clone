@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   Box,
-  Flex,
 } from '@chakra-ui/react'
 import Header from '../components/Header';
 import RecentActivity from '../components/RecentActivity';
@@ -51,11 +50,11 @@ const Landing = props => {
       userPlaylists !== null && artists !== null &&
       rnbAlbums !== null) {
     return(
-      <Flex>
-        <Box w={['15%', '12%', '12%', '12%', '12%']} bg='black'>
+      <Box display='flex'>
+        <Box w={['15%', '12%', '12%', '12%', '12%']} bg='black' display={['none', 'none', 'block', 'block', 'block']}>
           <LeftSideBar playlists={userPlaylists.items} />
         </Box>
-        <Box w='80%' bgGradient='linear(to-b, purple.900 1%, black 99%)'>
+        <Box w={['100%', '100%', '80%']} bgGradient='linear(to-b, purple.900 1%, black 99%)'>
           <Header 
             user={userProfile.id} 
             avatar={userProfile.images.length > 0 
@@ -67,10 +66,10 @@ const Landing = props => {
           <Artists artists={artists} />
           <MusicList albums={rnbAlbums} />
         </Box>
-        <Box w='12%' bg='black'>
+        <Box w='12%' bg='black' display={['none', 'none', 'block', 'block', 'block']}>
           <RightSideBar />
         </Box>
-      </Flex>
+      </Box>
     )
   }
   else {    

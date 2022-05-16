@@ -14,7 +14,7 @@ const MusicList = props => {
   })
 
   return (
-    <VStack p='2rem' align='left'>
+    <VStack p='2rem' align='left' overflow='auto'>
       <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Alternative R&B Forever</Text>
       <HStack spacing='2rem'>
         {renderedAlbums}
