@@ -51,10 +51,18 @@ const Landing = props => {
       rnbAlbums !== null) {
     return(
       <Box display='flex'>
-        <Box w={['15%', '12%', '12%', '12%', '12%']} bg='black' display={['none', 'none', 'block', 'block', 'block']}>
+        <Box 
+          w={['15%', '12%', '12%', '12%', '12%']}
+          display={['none', 'none', 'block', 'block', 'block']}
+          bg='black'
+        >
           <LeftSideBar playlists={userPlaylists.items} />
         </Box>
-        <Box w={['100%', '100%', '80%']} h='100%' bgGradient='linear(to-b, purple.900 1%, black 99%)'>
+        <Box 
+          w={['100%', '100%', '80%']} 
+          bgGradient='linear(to-b, purple.900 1%, black 99%)'
+          h='100%'
+        >
           <Header 
             user={userProfile.id} 
             avatar={userProfile.images.length > 0 
@@ -66,7 +74,7 @@ const Landing = props => {
           <Artists artists={artists} />
           <MusicList albums={rnbAlbums} />
         </Box>
-        <Box w='12%' bg='black' display={['none', 'none', 'block', 'block', 'block']}>
+        <Box display={['none', 'none', 'block', 'block', 'block']} w='12%' bg='black'>
           <RightSideBar />
         </Box>
       </Box>

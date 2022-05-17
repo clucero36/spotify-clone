@@ -11,19 +11,19 @@ import {
 const MusicCard = (props) => {
 
   return (
-    <Box variant='card'
+    <Box
       p={['.5rem', '.5rem', '1rem', '1rem', '1rem']} 
       h={['13rem', '13rem', '17rem']} 
       minW={['9rem', '9rem', '13rem']} 
       bgColor={['none', 'none', 'gray.900']}
       borderRadius='lg' 
     >
-      <VStack align='left'>
+      <VStack>
         <Image src={props.album.images[0].url} boxSize={['150px', '150px', '170px']}/>
-        <VStack align='left' spacing={0} pb='2rem'>
+        <Box w='100%' >
           <Text fontWeight='bold' fontSize='sm'>{props.album.name}</Text>
           <Text fontSize='sm'>{props.album.artists[0].name}</Text>
-        </VStack>
+        </Box>
       </VStack>
     </Box>
   )
