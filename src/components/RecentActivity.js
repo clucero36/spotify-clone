@@ -17,13 +17,13 @@ const RecentActivity = (props) => {
   })
 
   return (
-    <Box align='left' p='2rem'>
+    <Box align='left' p={['1rem', '1rem', '2rem', '2rem', '2rem']}>
       <Text fontWeight='bold' fontSize='xl' pb='.5rem'>It'll all workout</Text>
-      <Box display='flex' flexDirection={['row', 'row', 'column', 'column', 'column']}>
-        <Flex w='100%' m='0' justify='space-between' direction={['column', 'column', 'row', 'row', 'row']}>
+      <Box display='flex' justifyContent='space-between' flexDirection={['row', 'row', 'column', 'column', 'column']} gap={1} >
+        <Flex w='100%' m='0' justify='space-between' direction={['column', 'column', 'row', 'row', 'row']} gap={1}>
           {renderedTopThree}
         </Flex>
-        <Flex w='100%' m='0' justify='space-between' direction={['column', 'column', 'row', 'row', 'row']}>
+        <Flex w='100%' m='0' justify='space-between' direction={['column', 'column', 'row', 'row', 'row']} gap={1}>
           {renderedThreeMore}
         </Flex>
       </Box>

@@ -9,7 +9,7 @@ import {
 
 const RecentCard = (props) => {
   return (
-    <Box w={['10rem', '10rem', '10rem', '15rem', '28.5rem']} borderRadius='md' bgColor='gray.900'>
+    <Box w='100%' borderRadius='md' bgColor='gray.900' overflow='hidden'>
       <HStack align='center'>
         <Image src={props.img} borderRadius='md' />
         <Text isTruncated> {props.title}</Text>

@@ -8,9 +8,14 @@ import {
 
 const ArtistCard = (props) => {
   return (
-    <Box p='1rem' minW='130px' borderRadius='lg' bgColor='gray.900'>
-      <VStack align='left'>
-        <Image src={props.artist.images[0].url} boxSize='150px' borderRadius='full'/>
+    <Box 
+      p={['.5rem', '.5rem', '1rem', '1rem', '1rem']} 
+      h={['13.5rem', '13.5rem', '17rem']} 
+      minW={['9rem', '9rem', '13rem']} 
+      borderRadius='lg' bgColor='gray.900'
+    > 
+      <VStack align='left' >
+        <Image src={props.artist.images[2].url} boxSize={['128px', '128px', '170px']} borderRadius='full'/>
         <VStack align='left' spacing={0}>
           <Text fontWeight='bold' fontSize='sm'>{props.artist.name}</Text>
           <Text fontSize='sm'>Artist</Text>
