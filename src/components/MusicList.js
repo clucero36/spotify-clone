@@ -3,6 +3,8 @@ import {
   HStack,
   VStack,
   Text,
+  Spacer,
+  Box
 } from '@chakra-ui/react';
 import MusicCard from './MusicCard';
 
@@ -14,11 +16,15 @@ const MusicList = props => {
   })
 
   return (
-    <VStack p={['1rem', '1rem', '2rem']} align='left' overflow='auto'>
-      <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Alternative R&B Forever</Text>
-      <HStack spacing={['.5rem', '.5rem', '2rem']}>
-        {renderedAlbums}
+    <VStack p={['1rem', '1rem', '2rem']} align='left' overflowX='auto'>
+      <HStack>
+        <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Alternative R&B Forever</Text>
+        <Spacer />
+        <Text display={['none', 'none', 'block']} fontWeight='bold' fontSize='xs' color='gray.300'>SEE ALL</Text>
       </HStack>
+      <Box display='flex' gap={['.5rem', '.5rem', '2rem']} >
+        {renderedAlbums}
+      </Box>
     </VStack>
   )
 }

@@ -3,6 +3,8 @@ import {
   Text,
   HStack,
   VStack,
+  Box,
+  Spacer,
 } from '@chakra-ui/react';
 import ArtistCard from './ArtistCard';
 
@@ -13,11 +15,15 @@ const Artists = (props) => {
   })
   
   return (
-    <VStack p={['1rem', '1rem', '2rem']} align='left' overflow='auto'>
-      <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Artists You Should Listen To</Text>
-      <HStack spacing={['.5rem', '.5rem', '2rem']}>
-        {renderedArtists}
+    <VStack p={['1rem', '1rem', '2rem']} align='left' overflowX='auto'>
+      <HStack pb='.5rem'>
+        <Text fontWeight='bold' fontSize='lg' >Artists You Should Listen To</Text>
+        <Spacer />
+        <Text display={['none', 'none', 'block']} fontWeight='bold' fontSize='xs' color='gray.300'>SEE ALL</Text>
       </HStack>
+      <Box display='flex' gap={['.5rem', '.5rem', '2rem']} >
+        {renderedArtists}
+      </Box>
     </VStack>
   )
 }

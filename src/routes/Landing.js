@@ -54,7 +54,7 @@ const Landing = props => {
         <Box w={['15%', '12%', '12%', '12%', '12%']} bg='black' display={['none', 'none', 'block', 'block', 'block']}>
           <LeftSideBar playlists={userPlaylists.items} />
         </Box>
-        <Box w={['100%', '100%', '80%']} bgGradient='linear(to-b, purple.900 1%, black 99%)'>
+        <Box w={['100%', '100%', '80%']} h='100%' bgGradient='linear(to-b, purple.900 1%, black 99%)'>
           <Header 
             user={userProfile.id} 
             avatar={userProfile.images.length > 0 

@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ColorModeScript, ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import theme from './themes/theme';
+import { overrides } from './themes/themeIndex';
 import App from './App';
 import Landing from './routes/Landing';
 import Login from './routes/Login';
 import Redirect from './routes/Redirect';
 
 ReactDOM.render(
-  <ChakraProvider theme={theme}>
-    <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
+  <ChakraProvider theme={overrides}>
+    <ColorModeScript initialColorMode={overrides.config.initialColorMode}/>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />} />
