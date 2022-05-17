@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const client_id = "f7601cac702b49db92c02678ab6c5177";
 const client_secret = "78ba61007cf64462aa84551f740d6202";
-const redirect_uri = 'http://localhost:3000/redirect';
-// const redirect_uri = 'https://spotifyditto.netlify.app/redirect/';
+// const redirect_uri = 'http://localhost:3000/redirect';
+const redirect_uri = 'https://spotifyditto.netlify.app/redirect/';
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const querystring = require('query-string');
 const baseURI = 'https://api.spotify.com/v1';
