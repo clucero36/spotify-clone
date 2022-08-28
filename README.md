@@ -1,5 +1,7 @@
-Spotify Application Developed with JS, React, & Chakra UI. Work in Progress.
+Spotify Application Developed with JS, React, & Chakra UI. 
+
 Email me at llucero3696@gmail.com with your spotify email for access. 
+
 Completed: 
   -Spotify OAuth2.0
   -Landing Page User Interface:
