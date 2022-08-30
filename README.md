@@ -7,7 +7,7 @@ Completed:
   -Spotify OAuth2.0 server side implementation with Express
 
   -Landing Page User Interface:
-  
+
     *playlists
     *recently played
     *following activity
@@ -19,3 +19,4 @@ To Do:
   -Liked Songs Page
 
   -Music Player
+  
