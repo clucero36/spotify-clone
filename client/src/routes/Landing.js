@@ -24,7 +24,7 @@ const Landing = props => {
   const [userPlaylists, setUserPlaylists] = useState(null);
   const [artists, setArtists] = useState(null);
   const [rnbAlbums, setRnbAlbums] = useState(null);
-  
+
   useEffect(() => {
     const getData = async () => {
       getUserProfile(access_token, token_type).then((result) => {
@@ -44,7 +44,7 @@ const Landing = props => {
       });
     }
     getData();
-  }, [state])
+  }, [access_token, token_type])
 
   if (userProfile !== null && userRecents !== null && 
       userPlaylists !== null && artists !== null &&
