@@ -1,14 +1,14 @@
 import { React, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import {
   Box,
 } from '@chakra-ui/react'
-import Header from '../components/Header';
-import RecentActivity from '../components/RecentActivity';
+
 import LeftSideBar from '../components/LeftSideBar';
 import RightSideBar from '../components/RightSideBar';
-import Artists from '../components/Artists';
-import MusicList from '../components/MusicList'
+import UserHome from '../components/UserHome';
+import LikedTracks from './LikedTracks';
+
 import { 
   getUserProfile, 
   getUserRecents, 
@@ -24,27 +24,30 @@ const Landing = props => {
   const [userPlaylists, setUserPlaylists] = useState(null);
   const [artists, setArtists] = useState(null);
   const [rnbAlbums, setRnbAlbums] = useState(null);
+  let access_token = state.access_token;
+  let token_type = state.token_type;
 
   useEffect(() => {
+    
     const getData = async () => {
-      getUserProfile(state.access_token, state.token_type).then((result) => {
+      getUserProfile(access_token, token_type).then((result) => {
         setUserProfile(result)
       });
-      getUserRecents(state.access_token, state.token_type).then((result) => {
+      getUserRecents(access_token, token_type).then((result) => {
         setUserRecents(result)
       });
-      getUserPlaylists(state.access_token, state.token_type).then((result) => {
+      getUserPlaylists(access_token, token_type).then((result) => {
         setUserPlaylists(result);
       });
-      getArtists(state.access_token, state.token_type).then((result) =>{
+      getArtists(access_token, token_type).then((result) =>{
         setArtists(result.artists);
       });
-      getRnbAlbums(state.access_token, state.token_type).then((result) => {
+      getRnbAlbums(access_token, token_type).then((result) => {
         setRnbAlbums(result.albums);
       });
     }
     getData();
-  }, [state])
+  }, [access_token, token_type])
 
   if (userProfile !== null && userRecents !== null && 
       userPlaylists !== null && artists !== null &&
@@ -52,9 +55,9 @@ const Landing = props => {
     return(
       <Box display='flex'>
         <Box 
-          w={['15%', '12%', '12%', '12%', '12%']}
           display={['none', 'none', 'block', 'block', 'block']}
           bg='black'
+          w='12%'
         >
           <LeftSideBar playlists={userPlaylists.items} />
         </Box>
@@ -63,21 +66,29 @@ const Landing = props => {
           bgGradient='linear(to-b, purple.900 1%, black 99%)'
           h='100%'
         >
-          <Header 
-            user={userProfile.id} 
-            avatar={userProfile.images.length > 0 
-              ? userProfile.images[0].url
-              : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
-            } 
-          />
-          <RecentActivity recentTracks={userRecents.items} />
-          <Artists artists={artists} />
-          <MusicList albums={rnbAlbums} />
+          <Routes>
+            <Route 
+              path='/' 
+              element={
+                <UserHome 
+                  rnbAlbums={rnbAlbums} 
+                  userProfile={userProfile} 
+                  userRecents={userRecents} 
+                  artists={artists} 
+                />
+              } 
+            />
+            <Route
+              path='/likedtracks'
+              element={<LikedTracks />}
+            />
+          </Routes>
         </Box>
         <Box display={['none', 'none', 'block', 'block', 'block']} w='12%' bg='black'>
           <RightSideBar />
         </Box>
       </Box>
+       
     )
   }
   else {    

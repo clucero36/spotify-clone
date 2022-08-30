@@ -9,7 +9,6 @@ import {
 import MusicCard from './MusicCard';
 
 const MusicList = props => {
-  console.log(props.albums);
 
   const renderedAlbums = props.albums.map((album) => {
     return <MusicCard key={album.id} album={album} />

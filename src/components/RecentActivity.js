@@ -7,13 +7,14 @@ import {
 import RecentCard from './RecentCard';
 
 const RecentActivity = (props) => {
+  
   const topThree = props.recentTracks.slice(0, 3);
-  const renderedTopThree = topThree.map((topItem) => {
-    return <RecentCard img={topItem.track.album.images[2].url} title={topItem.track.album.name} key={topItem.track.id} />
+  const renderedTopThree = topThree.map((topItem, index) => {
+    return <RecentCard img={topItem.track.album.images[2].url} title={topItem.track.album.name} key={index} />
   }) 
   const threeMore = props.recentTracks.slice(3, 6);
-  const renderedThreeMore = threeMore.map((topItem) => {
-    return <RecentCard img={topItem.track.album.images[2].url} title={topItem.track.album.name} key={topItem.track.id} />
+  const renderedThreeMore = threeMore.map((topItem, index) => {
+    return <RecentCard img={topItem.track.album.images[2].url} title={topItem.track.album.name} key={index} />
   })
 
   return (

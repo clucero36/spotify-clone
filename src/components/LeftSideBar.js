@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link as routerLink} from 'react-router-dom';
 import {
   Box,
   VStack,
   HStack,
   Icon,
   Text,
+  Link,
 } from '@chakra-ui/react';
 import Playlists from './Playlists';
 import { IoIosHome } from "react-icons/io";
@@ -41,8 +43,10 @@ const LeftSideBar = (props) => {
             <Text>Create Playlist</Text>
           </HStack>
           <HStack>
-            <Icon w={4} h={4} as={BiHeartSquare} />
-            <Text>Your Liked Songs</Text>
+            <Link to='/user/likedtracks' as={routerLink} >
+              <Icon w={4} h={4} as={BiHeartSquare} />
+              <Text>Your Liked Songs</Text>
+            </Link>
           </HStack>
         </VStack>
       </VStack>

@@ -1,9 +1,9 @@
 import React from 'react';
-import Welcome from './routes/Welcome';
+import Login from './routes/Login';
 
 function App() {
   return (
-      <Welcome />
+      <Login />
   );
 }
 
