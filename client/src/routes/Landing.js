@@ -17,8 +17,8 @@ import {
 
 const Landing = props => {
   const {state} = useLocation();
-  let access_token = state.access_token;
-  let token_type = state.token_type;
+  const access_token = state.access_token;
+  const token_type = state.token_type;
   const [userProfile, setUserProfile] = useState(null);
   const [userRecents, setUserRecents] = useState(null);
   const [userPlaylists, setUserPlaylists] = useState(null);
