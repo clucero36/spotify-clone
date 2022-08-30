@@ -9,9 +9,9 @@ export async function getUserProfile(token, type) {
       'Authorization': type + ' ' + token,
     }
   }
-  const enp = '/me'
+  const endp = '/me'
   const response = await axios.get(
-    baseURI + enp,
+    baseURI + endp,
     headers,
   )
   return response.data;

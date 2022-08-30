@@ -17,16 +17,15 @@ import {
 
 const Landing = props => {
   const {state} = useLocation();
+  let access_token = state.access_token;
+  let token_type = state.token_type;
   const [userProfile, setUserProfile] = useState(null);
   const [userRecents, setUserRecents] = useState(null);
   const [userPlaylists, setUserPlaylists] = useState(null);
   const [artists, setArtists] = useState(null);
   const [rnbAlbums, setRnbAlbums] = useState(null);
-  let access_token = state.access_token;
-  let token_type = state.token_type;
-
+  
   useEffect(() => {
-    
     const getData = async () => {
       getUserProfile(access_token, token_type).then((result) => {
         setUserProfile(result)
@@ -45,7 +44,7 @@ const Landing = props => {
       });
     }
     getData();
-  }, [access_token, token_type])
+  }, [state])
 
   if (userProfile !== null && userRecents !== null && 
       userPlaylists !== null && artists !== null &&
