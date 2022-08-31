@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useSearchParams } from 'react-router-dom';
 import {
   Box,
 } from '@chakra-ui/react'
@@ -16,9 +16,12 @@ import {
 } from '../apis/spotify'
 
 const Landing = props => {
-  const {state} = useLocation();
-  const access_token = state.access_token;
-  const token_type = state.token_type;
+  // const {state} = useLocation();
+  const [searchParams] = useSearchParams()
+  const access_token = searchParams.get('access_token');
+  const token_type = searchParams.get('token_type');
+  // const access_token = state.access_token;
+  // const token_type = state.token_type;
   const [userProfile, setUserProfile] = useState(null);
   const [userRecents, setUserRecents] = useState(null);
   const [userPlaylists, setUserPlaylists] = useState(null);

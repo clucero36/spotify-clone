@@ -8,7 +8,8 @@ let app = express();
 app.use(cors());
 app.use(json());
 
-const redirect_uri = 'https://spotifyditto.netlify.app/callback';
+// const redirect_uri = 'https://spotifyditto.netlify.app/callback';
+const redirect_uri = 'http://localhost:5000/callback'
 const scope = 'user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read';
 
 app.listen(port, () => {
@@ -55,6 +56,7 @@ app.get('/callback', (req, res) => {
     return await response.json();
   }
   getToken(code).then((x) => {
-    res.redirect('https://spotifyditto.netlify.app/callback?' + stringify(x));
+    let params = {access_token: x.access_token, token_type:x.token_type}
+    res.redirect('https://spotifyditto.netlify.app/user?' + stringify(params));
   })
 });
