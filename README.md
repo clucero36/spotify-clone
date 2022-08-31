@@ -19,4 +19,6 @@ To Do:
   -Liked Songs Page
 
   -Music Player
+
+  -Firebase Cloud Functions to host backend code
   
