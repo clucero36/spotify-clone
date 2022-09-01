@@ -7,7 +7,7 @@ const querystring = require('query-string');
 
 exports.requestSpotifyUserAuth = functions.https.onRequest((req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
-  const redirect_uri = 'https://llucero.netlify.app';
+  const redirect_uri = 'https://us-central1-spotify-82254.cloudfunctions.net/spotifyAccessTokenCB';
   const scope = 'user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read';
   let qString = querystring.stringify({
     response_type: 'code',
@@ -15,18 +15,18 @@ exports.requestSpotifyUserAuth = functions.https.onRequest((req, res) => {
     scope: scope,
     redirect_uri: redirect_uri,
   });
-  res.send('https://accounts.spotify.com/authorize?' + qString);
+  res.send({authUrl: 'https://accounts.spotify.com/authorize?' + qString});
 });
 
 
 exports.spotifyAccessTokenCB = functions.https.onRequest((req, res) => {
   const axios = require('axios').default;
   res.set('Access-Control-Allow-Origin', '*');
-  const redirect_uri = 'https://spotifyditto.netlify.app/callback';
+  const redirect_uri = 'https://us-central1-spotify-82254.cloudfunctions.net/spotifyAccessTokenCB';
   const code = req.query.code;
 
   async function getToken(code) {
-    const buf = Buffer.from('f7601cac702b49db92c02678ab6c5177' + ':' + '78ba61007cf64462aa84551f740d6202', 'utf8')
+    const buf = Buffer.from(functions.config().spotify.client_id + ':' + functions.config().spotify.client_secret, 'utf8')
     const qString = querystring.stringify({
       grant_type: 'authorization_code',
       code: code,
@@ -35,12 +35,12 @@ exports.spotifyAccessTokenCB = functions.https.onRequest((req, res) => {
     axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     axios.defaults.headers.post['Authorization'] = 'Basic ' + buf.toString('base64');
     const response = await axios.post('https://accounts.spotify.com/api/token?'+ qString)
-    return response;
+    return response.data;
   }
   getToken(code).then((x) => {
-    let params = {access_token: x.data.access_token, token_type:x.data.token_type}
+    let params = {access_token: x.access_token, token_type:x.token_type}
     res.redirect('https://spotifyditto.netlify.app/user?' + querystring.stringify(params));
   }).catch(function (error) {
-    console.log(error);
+    res.send(error);
   })
 })

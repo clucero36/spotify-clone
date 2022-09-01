@@ -7,8 +7,9 @@ import {
 const Login = () => {
 
   async function reqAuth() {
-    const response = await fetch('http://localhost:5000/userlogin', {
+    const response = await fetch('https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth', {
       method: 'GET',
+      mode: 'cors',
     });
     let auth = await response.json()
     window.location.href = auth.authUrl;
