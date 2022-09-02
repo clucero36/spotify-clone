@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {
   Box,
   Button,
@@ -7,12 +8,9 @@ import {
 const Login = () => {
 
   async function reqAuth() {
-    const response = await fetch('https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth', {
-      method: 'GET',
-      mode: 'cors',
-    });
-    let auth = await response.json()
-    window.location.href = auth.authUrl;
+    axios.get('https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth').then((x) => {
+      window.location.href=x.data.authUrl;
+    })
   }
 
   return (

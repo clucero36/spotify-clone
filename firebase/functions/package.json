@@ -14,7 +14,9 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/logging": "^10.1.7",
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.23.0",
     "query-string": "^7.1.1"

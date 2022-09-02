@@ -3,11 +3,9 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 const querystring = require('query-string');
 
-
-
+const redirect_uri = 'https://us-central1-spotify-82254.cloudfunctions.net/spotifyAccessTokenCB';
 exports.requestSpotifyUserAuth = functions.https.onRequest((req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
-  const redirect_uri = 'https://us-central1-spotify-82254.cloudfunctions.net/spotifyAccessTokenCB';
   const scope = 'user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read';
   let qString = querystring.stringify({
     response_type: 'code',
@@ -22,7 +20,6 @@ exports.requestSpotifyUserAuth = functions.https.onRequest((req, res) => {
 exports.spotifyAccessTokenCB = functions.https.onRequest((req, res) => {
   const axios = require('axios').default;
   res.set('Access-Control-Allow-Origin', '*');
-  const redirect_uri = 'https://us-central1-spotify-82254.cloudfunctions.net/spotifyAccessTokenCB';
   const code = req.query.code;
 
   async function getToken(code) {
