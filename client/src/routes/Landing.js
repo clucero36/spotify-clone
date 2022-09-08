@@ -6,6 +6,7 @@ import {
 import LeftSideBar from '../components/LeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import UserHome from '../components/UserHome';
+import Header from '../components/Header';
 import LikedTracks from './LikedTracks';
 import { TokenContext } from '../Context';
 import { 
@@ -65,6 +66,13 @@ const Landing = props => {
           bgGradient='linear(to-b, purple.900 1%, black 99%)'
           h='100%'
         >
+          <Header 
+            user={userProfile.id} 
+            avatar={userProfile.images.length > 0 
+              ? userProfile.images[0].url
+              : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+            } 
+          />
           <Routes>
             <Route 
               path='/' 
@@ -79,7 +87,10 @@ const Landing = props => {
             />
             <Route
               path='/likedtracks'
-              element={<LikedTracks token={accessToken} type={tokenType} />}
+              element={<LikedTracks token={accessToken} type={tokenType} user={userProfile.id} avatar={userProfile.images.length > 0 
+                ? userProfile.images[0].url
+                : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+              } />}
             />
           </Routes>
         </Box>

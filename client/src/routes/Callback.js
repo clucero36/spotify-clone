@@ -5,20 +5,21 @@ import {
 } from '@chakra-ui/react';
 import { TokenContext } from '../Context';
 
+  // We set Access Token & Token Type as our apps context. 
+  // this allows app to access the token regardless of page. 
+  // 
+  // Why Context? when passing token through parameters or location state,
+  // landing page would re render & we would lose our state. 
+  // useContext hook solved this problem. 
 const Callback = () => {
-  // hook used to grab query parameters
+
   const [searchParams] = useSearchParams()
   const navigate = useNavigate();
-
   const { value, value2 } = useContext(TokenContext);
   const [,setAccessToken] = value;
   const [,setTokenType] = value2;
 
-  // token & token type sent in url params from our backend
-
-
-  // app sends user to userHome page and passes token & token type
-  // for future requests to spotify api. 
+  // app sends user to userHome page & sets context of our app
   useEffect(() => {
     setAccessToken(searchParams.get('access_token'));
     setTokenType(searchParams.get('token_type'));
