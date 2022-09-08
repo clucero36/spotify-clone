@@ -76,6 +76,21 @@ export async function getRnbAlbums(token, type) {
   return response.data;
 }
 
+export async function getUsersSavedTracks(token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = '/me/tracks'
+  const response = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  return response.data;
+}
+
 
 // Spotify has insane algorithms implemented to view reccomended content
 // I grabbed some content ids & retrieved them manually. 

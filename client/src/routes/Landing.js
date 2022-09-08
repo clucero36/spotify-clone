@@ -1,5 +1,5 @@
-import { React, useState, useEffect } from 'react';
-import { Route, Routes, useSearchParams } from 'react-router-dom';
+import { React, useState, useEffect, useContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import {
   Box,
 } from '@chakra-ui/react'
@@ -7,6 +7,7 @@ import LeftSideBar from '../components/LeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import UserHome from '../components/UserHome';
 import LikedTracks from './LikedTracks';
+import { TokenContext } from '../Context';
 import { 
   getUserProfile, 
   getUserRecents, 
@@ -16,38 +17,36 @@ import {
 } from '../apis/spotify'
 
 const Landing = props => {
-  // const {state} = useLocation();
-  const [searchParams] = useSearchParams()
-  const access_token = searchParams.get('access_token');
-  const token_type = searchParams.get('token_type');
-  // const access_token = state.access_token;
-  // const token_type = state.token_type;
+
   const [userProfile, setUserProfile] = useState(null);
   const [userRecents, setUserRecents] = useState(null);
   const [userPlaylists, setUserPlaylists] = useState(null);
   const [artists, setArtists] = useState(null);
   const [rnbAlbums, setRnbAlbums] = useState(null);
+  const { value, value2 } = useContext(TokenContext);
+  const [accessToken] = value;
+  const [tokenType] = value2;
 
   useEffect(() => {
     const getData = async () => {
-      getUserProfile(access_token, token_type).then((result) => {
+      getUserProfile(accessToken, tokenType).then((result) => {
         setUserProfile(result)
       });
-      getUserRecents(access_token, token_type).then((result) => {
+      getUserRecents(accessToken, tokenType).then((result) => {
         setUserRecents(result)
       });
-      getUserPlaylists(access_token, token_type).then((result) => {
+      getUserPlaylists(accessToken, tokenType).then((result) => {
         setUserPlaylists(result);
       });
-      getArtists(access_token, token_type).then((result) =>{
+      getArtists(accessToken, tokenType).then((result) =>{
         setArtists(result.artists);
       });
-      getRnbAlbums(access_token, token_type).then((result) => {
+      getRnbAlbums(accessToken, tokenType).then((result) => {
         setRnbAlbums(result.albums);
       });
     }
-    getData();
-  }, [access_token, token_type])
+    getData()
+  }, [accessToken, tokenType])
 
   if (userProfile !== null && userRecents !== null && 
       userPlaylists !== null && artists !== null &&
@@ -80,7 +79,7 @@ const Landing = props => {
             />
             <Route
               path='/likedtracks'
-              element={<LikedTracks />}
+              element={<LikedTracks token={accessToken} type={tokenType} />}
             />
           </Routes>
         </Box>

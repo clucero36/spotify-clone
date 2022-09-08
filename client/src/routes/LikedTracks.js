@@ -3,12 +3,13 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-const LikedTracks = () => {
+const LikedTracks = ({token, type}) => {
 
 
   return (
     <Box>
-      LikedTracks
+      {token}
+      {type}
     </Box>
   )
 }
