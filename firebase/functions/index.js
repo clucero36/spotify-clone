@@ -36,8 +36,10 @@ exports.spotifyAccessTokenCB = functions.https.onRequest((req, res) => {
   }
   getToken(code).then((x) => {
     let params = {access_token: x.access_token, token_type:x.token_type}
-    res.redirect('https://spotifyditto.netlify.app/user?' + querystring.stringify(params));
+    res.redirect('https://spotifyditto.netlify.app/callback?' + querystring.stringify(params));
   }).catch(function (error) {
     res.send(error);
   })
 })
+
+// https://spotifyditto.netlify.app

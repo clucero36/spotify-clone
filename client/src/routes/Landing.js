@@ -17,16 +17,16 @@ import {
   getRnbAlbums,
 } from '../apis/spotify'
 
-const Landing = props => {
+const Landing = () => {
+  const { value, value2 } = useContext(TokenContext);
+  const [accessToken] = value;
+  const [tokenType] = value2;
 
   const [userProfile, setUserProfile] = useState(null);
   const [userRecents, setUserRecents] = useState(null);
   const [userPlaylists, setUserPlaylists] = useState(null);
   const [artists, setArtists] = useState(null);
   const [rnbAlbums, setRnbAlbums] = useState(null);
-  const { value, value2 } = useContext(TokenContext);
-  const [accessToken] = value;
-  const [tokenType] = value2;
 
   useEffect(() => {
     const getData = async () => {
@@ -87,10 +87,12 @@ const Landing = props => {
             />
             <Route
               path='/likedtracks'
-              element={<LikedTracks token={accessToken} type={tokenType} user={userProfile.id} avatar={userProfile.images.length > 0 
-                ? userProfile.images[0].url
-                : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
-              } />}
+              element= {
+                <LikedTracks 
+                  user={userProfile.id} 
+                  avatar={userProfile.images.length > 0 ? userProfile.images[0].url : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
+                />
+              }
             />
           </Routes>
         </Box>

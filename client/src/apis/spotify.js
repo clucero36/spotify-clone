@@ -83,7 +83,7 @@ export async function getUsersSavedTracks(token, type) {
       'Authorization': type + ' ' + token,
     }
   }
-  const endp = '/me/tracks'
+  const endp = '/me/tracks?limit=50'
   const response = await axios.get(
     baseURI + endp,
     headers,
