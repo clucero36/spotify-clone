@@ -8,13 +8,15 @@ Completed:
 
   -User Home Page
 
+  -Firebase Cloud Functions to host backend code
+
+  -Liked Songs Page
+
 To Do: 
 
   -Develop REST api in Go & Gin
 
-  -Liked Songs Page
-
   -Music Player
 
-  -Firebase Cloud Functions to host backend code
+
   
