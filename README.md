@@ -4,7 +4,7 @@ Email me at llucero3696@gmail.com with your spotify email for access.
 
 Completed: 
 
-  -Spotify OAuth2.0 server side implementation with Express
+  -Spotify OAuth2.0 server side implementation
 
   -User Home Page
 
@@ -13,8 +13,6 @@ Completed:
   -Liked Songs Page
 
 To Do: 
-
-  -Develop REST api in Go & Gin
 
   -Music Player
 
