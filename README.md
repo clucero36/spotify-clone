@@ -1,5 +1,6 @@
 Spotify Application Developed with React, Chakra UI, Firebase Cloud Functions, & Express.
 
+
 Completed: 
 
   -Spotify OAuth2.0 server side implementation with Express & Cloud Functions
