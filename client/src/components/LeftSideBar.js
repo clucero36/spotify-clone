@@ -17,7 +17,7 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 const LeftSideBar = (props) => {
   
   return (
-    <Box p='.5rem 2rem .5rem 1rem' h='100vh' sx={{ position: 'sticky', top: '0', }}>
+    <Box p='.5rem 1rem .5rem 1rem' h='100vh' sx={{ position: 'sticky', top: '0', }}>
       {/* Top Section of Sidebar */}
       <VStack align='left' spacing={6}  pb='1rem' borderBottom='1px solid white'>
         {/* First 4 items on left sidebar */}
@@ -40,12 +40,12 @@ const LeftSideBar = (props) => {
         <VStack align='left' spacing={2}>
           <HStack>
             <Icon w={4} h={4} as={AiOutlinePlusSquare} />
-            <Text>Create Playlist</Text>
+            <Text noOfLines={1}>Create Playlist</Text>
           </HStack>
           <HStack>
+            <Icon w={4} h={4} as={BiHeartSquare} />
             <Link to='/user/likedtracks' as={routerLink} >
-              <Icon w={4} h={4} as={BiHeartSquare} />
-              <Text>Your Liked Songs</Text>
+              <Text isTruncated>Liked Songs</Text>
             </Link>
           </HStack>
         </VStack>

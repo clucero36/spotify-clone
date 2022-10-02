@@ -8,6 +8,7 @@ import RightSideBar from '../components/RightSideBar';
 import UserHome from '../components/UserHome';
 import Header from '../components/Header';
 import LikedTracks from './LikedTracks';
+import WebPB from '../components/WebPB';
 import { TokenContext } from '../Context';
 import { 
   getUserProfile, 
@@ -49,58 +50,63 @@ const Landing = () => {
     getData()
   }, [accessToken, tokenType])
 
+  console.log("Landing Rerendered")
   if (userProfile !== null && userRecents !== null && 
       userPlaylists !== null && artists !== null &&
       rnbAlbums !== null) {
     return(
-      <Box display='flex'>
-        <Box 
-          display={['none', 'none', 'block', 'block', 'block']}
-          bg='black'
-          w='12%'
-        >
-          <LeftSideBar playlists={userPlaylists.items} />
-        </Box>
-        <Box 
-          w={['100%', '100%', '80%']} 
-          bgGradient='linear(to-b, purple.900 1%, black 99%)'
-          h='100%'
-        >
-          <Header 
-            user={userProfile.id} 
-            avatar={userProfile.images.length > 0 
-              ? userProfile.images[0].url
-              : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
-            } 
-          />
-          <Routes>
-            <Route 
-              path='/' 
-              element={
-                <UserHome 
-                  rnbAlbums={rnbAlbums} 
-                  userProfile={userProfile} 
-                  userRecents={userRecents} 
-                  artists={artists} 
-                />
+      <>
+        <Box display='flex'>
+          <Box 
+            display={['none', 'none', 'block', 'block', 'block']}
+            bg='black'
+            w='12%'
+          >
+            <LeftSideBar playlists={userPlaylists.items} />
+          </Box>
+          <Box 
+            w={['100%', '100%', '80%']} 
+            bgGradient='linear(to-b, purple.900 1%, black 99%)'
+            h='100%'
+          >
+            <Header 
+              user={userProfile.id} 
+              avatar={userProfile.images.length > 0 
+                ? userProfile.images[0].url
+                : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
               } 
             />
-            <Route
-              path='/likedtracks'
-              element= {
-                <LikedTracks 
-                  user={userProfile.id} 
-                  avatar={userProfile.images.length > 0 ? userProfile.images[0].url : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
-                />
-              }
-            />
-          </Routes>
+            <Routes>
+              <Route 
+                path='/' 
+                element={
+                  <UserHome 
+                    rnbAlbums={rnbAlbums} 
+                    userProfile={userProfile} 
+                    userRecents={userRecents} 
+                    artists={artists} 
+                  />
+                } 
+              />
+              <Route
+                path='/likedtracks'
+                element= {
+                  <LikedTracks 
+                    user={userProfile.id} 
+                    avatar={userProfile.images.length > 0 ? userProfile.images[0].url : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
+                  />
+                }
+              />
+            </Routes>
+          </Box>
+          <Box display={['none', 'none', 'block', 'block', 'block']} w='12%' bg='black'>
+            <RightSideBar />
+          </Box>
         </Box>
-        <Box display={['none', 'none', 'block', 'block', 'block']} w='12%' bg='black'>
-          <RightSideBar />
+        <Box w='100%' pos='sticky' bottom='0px'>
+          <WebPB token={accessToken} />
         </Box>
-      </Box>
-       
+      </>
     )
   }
   else {    

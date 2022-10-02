@@ -56,8 +56,7 @@ function getAddedDate(track) {
     return daysAgo;
   else {
     return compareDate.toString().slice(4, 15).replaceAll(' ', ',').replace(',', ' ');
-  }
-    
+  }  
 }
 
 export default Tracks;
