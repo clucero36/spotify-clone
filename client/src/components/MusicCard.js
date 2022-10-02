@@ -7,7 +7,6 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-
 const MusicCard = (props) => {
 
   return (
@@ -17,9 +16,12 @@ const MusicCard = (props) => {
       minW={['9rem', '9rem', '13rem']} 
       bgColor={['none', 'none', 'gray.900']}
       borderRadius='lg' 
+      _hover={{backgroundColor: 'gray.700'}}
     >
       <VStack>
-        <Image src={props.album.images[0].url} boxSize={['150px', '150px', '170px']}/>
+        <Box boxShadow='dark-lg'>
+          <Image src={props.album.images[0].url} boxSize={['150px', '150px', '170px']} />
+        </Box>
         <Box w='100%' >
           <Text fontWeight='bold' fontSize='sm'>{props.album.name}</Text>
           <Text fontSize='sm'>{props.album.artists[0].name}</Text>

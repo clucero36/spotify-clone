@@ -14,9 +14,12 @@ const ArtistCard = (props) => {
       minW={['9rem', '9rem', '13rem']} 
       bgColor={['none', 'none', 'gray.900']}
       borderRadius='lg'
+      _hover={{backgroundColor: 'gray.700'}}
     > 
       <VStack>
-        <Image src={props.artist.images[2].url} boxSize={['128px', '128px', '170px']} borderRadius='full'/>
+        <Box borderRadius='full' boxShadow='dark-lg'>
+          <Image src={props.artist.images[2].url} boxSize={['128px', '128px', '170px']} borderRadius='full'/>
+        </Box>
         <Box w='100%'>
           <Text textAlign={['center', 'center', 'left']} fontWeight='bold' fontSize='sm'>{props.artist.name}</Text>
           <Text textAlign={['center', 'center', 'left']} fontSize='sm'>Artist</Text>
