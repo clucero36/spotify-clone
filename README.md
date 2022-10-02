@@ -1,6 +1,4 @@
-Spotify Application Developed with React, Chakra UI, & Express. 
-
-Email me at llucero3696@gmail.com with your spotify email for access. 
+Spotify Application Developed with React, Chakra UI, Firebase Cloud Functions, & Express.
 
 Completed: 
 
