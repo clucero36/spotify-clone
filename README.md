@@ -4,17 +4,22 @@ Email me at llucero3696@gmail.com with your spotify email for access.
 
 Completed: 
 
-  -Spotify OAuth2.0 server side implementation
+  -Spotify OAuth2.0 server side implementation with Express & Cloud Functions
+
+  -Firebase Cloud Functions for deployment
+
+  -Express server for local development
+
+  -Spotify WebPlayback SDK
 
   -User Home Page
-
-  -Firebase Cloud Functions to host backend code
 
   -Liked Songs Page
 
 To Do: 
 
-  -Music Player
+  -Develop unauthenticated viewing
 
+  -Live access music listening
 
   
