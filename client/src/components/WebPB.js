@@ -71,7 +71,7 @@ const WebPB = (props) => {
           console.log('The Web Playback SDK successfuly connected to Spotify');
       });
     };
-  }, []);
+  }, [props.token]);
 
   console.log(current_track);
 
