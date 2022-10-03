@@ -23,3 +23,4 @@ To Do:
 
   
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Landing_SreenShot.PNG "User Landing")
+![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/LikedSongs_SreenShot.PNG "User Landing")
