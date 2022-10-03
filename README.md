@@ -21,6 +21,8 @@ To Do:
 
   -Live access music listening
 
-  
+Landing Page UI
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Landing_SreenShot.PNG "User Landing")
-![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/LikedSongs_SreenShot.PNG "User Landing")
+
+Liked Songs UI
+![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/LikedSongs_ScreenShot.PNG "User Landing")
