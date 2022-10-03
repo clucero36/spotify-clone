@@ -22,4 +22,4 @@ To Do:
   -Live access music listening
 
   
-![Alt text](spotify-clone/Landing_SreenShot.PNGraw=true "User Landing")
+![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Landing_SreenShot.PNG "User Landing")
