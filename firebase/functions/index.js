@@ -6,7 +6,7 @@ const querystring = require('query-string');
 const redirect_uri = 'https://us-central1-spotify-82254.cloudfunctions.net/spotifyAccessTokenCB';
 exports.requestSpotifyUserAuth = functions.https.onRequest((req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
-  const scope = 'user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read';
+  const scope = 'streaming user-read-private user-read-email user-top-read user-read-recently-played playlist-read-private user-library-read';
   let qString = querystring.stringify({
     response_type: 'code',
     client_id: functions.config().spotify.client_id,
@@ -42,4 +42,5 @@ exports.spotifyAccessTokenCB = functions.https.onRequest((req, res) => {
   })
 })
 
+// http://localhost:3000
 // https://spotifyditto.netlify.app
