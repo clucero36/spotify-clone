@@ -18,8 +18,8 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { FiArrowDownCircle, FiSearch, FiChevronDown } from "react-icons/fi";
-import { BiHeartSquare, BiPlayCircle } from "react-icons/bi";
-
+import { BiPlayCircle } from "react-icons/bi";
+import { AiFillHeart } from "react-icons/ai";
 
 
 const LikedTracks = ({ user, avatar }) => {
@@ -45,15 +45,17 @@ const LikedTracks = ({ user, avatar }) => {
     return (
       <Box>
         <Box h='15rem'>
-          <HStack h='100%'>
-            <Icon boxSize={250} as={BiHeartSquare} color='purple.200'/>
-            <VStack align='left' m='0' h='50%' gap={35}>
+          <HStack h='100%' gap={15} ml='1rem'>
+            <Flex boxSize={200} boxShadow='dark-lg' align='center'>
+              <Icon w='10%' m='0 auto' as={AiFillHeart} boxSize='101' color='white'/>
+            </Flex>
+            <VStack align='left' ml='0' h='50%' gap={35}>
               <Box>
                 <Text>Playlist</Text>
-                <Heading size='3xl'>Liked Tracks</Heading>
+                <Heading size='3xl'>Liked Songs</Heading>
               </Box>
               <HStack>
-                <Avatar size='xs' src={avatar} />
+                <Avatar size='xs' src={avatar} boxShadow='dark-lg' />
                 <Text>{user}</Text>
               </HStack>
             </VStack>
@@ -89,7 +91,7 @@ const LikedTracks = ({ user, avatar }) => {
     )
   }
   else {
-    return <Text>Loading Tracks</Text>
+    return <Text>Loading...</Text>
   }
   
 }

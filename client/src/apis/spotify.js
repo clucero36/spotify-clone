@@ -46,36 +46,6 @@ export async function getUserPlaylists(token, type) {
   return response.data
 }
 
-export async function getArtists(token, type) {
-  const headers =  {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': type + ' ' + token,
-    }
-  }
-  const endp = '/artists?ids=4MbRfFtyXLbOnccfjBE69n,2VYFboeFi8XZOLuEYLf1Z2,7zxS4o4zmwxJNe5UvC2Fx5,4cUkGQyhLFqKHBtL58HYVp,2RqrWplViWHSGLzlhmDcbt,7CCrWKLbAto1EXI2eoG9Vu'  
-  const response = await axios.get(
-    baseURI + endp,
-    headers,
-  )
-  return response.data
-}
-
-export async function getRnbAlbums(token, type) {
-  const headers =  {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': type + ' ' + token,
-    }
-  }
-  const endp = '/albums?ids=392p3shh2jkxUxY2VHvlH8,69g3CtOVg98TPOwqmI2K7Q,3mH6qwIy9crq0I9YQbOuDf,3MP8mUHuQlYrGUkrEG4qpJ,070rEVRV6FWywkncMWLhs6,21XMv0TCsnhWPt7MNVvkzD'
-  const response = await axios.get(
-    baseURI + endp,
-    headers,
-  )
-  return response.data;
-}
-
 export async function getUsersSavedTracks(token, type) {
   const headers =  {
     headers: {
@@ -111,3 +81,32 @@ export async function getUsersSavedTracks(token, type) {
 // https://open.spotify.com/album/070rEVRV6FWywkncMWLhs6?si=64ef23d189f14240
 // https://open.spotify.com/album/21XMv0TCsnhWPt7MNVvkzD?si=e4cc2c9b55c4439d
 
+export async function getArtists(token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = '/artists?ids=4MbRfFtyXLbOnccfjBE69n,2VYFboeFi8XZOLuEYLf1Z2,7zxS4o4zmwxJNe5UvC2Fx5,4cUkGQyhLFqKHBtL58HYVp,2RqrWplViWHSGLzlhmDcbt,7CCrWKLbAto1EXI2eoG9Vu'  
+  const response = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  return response.data
+}
+
+export async function getRnbAlbums(token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = '/albums?ids=392p3shh2jkxUxY2VHvlH8,69g3CtOVg98TPOwqmI2K7Q,3mH6qwIy9crq0I9YQbOuDf,3MP8mUHuQlYrGUkrEG4qpJ,070rEVRV6FWywkncMWLhs6,21XMv0TCsnhWPt7MNVvkzD'
+  const response = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  return response.data;
+}
