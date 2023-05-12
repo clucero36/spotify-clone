@@ -1,5 +1,5 @@
-import { React, useState, useEffect, useContext } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { React, useContext } from 'react';
+import { Routes } from 'react-router-dom';
 import {
   Box,
 } from '@chakra-ui/react'

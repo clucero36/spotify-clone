@@ -6,7 +6,6 @@ import {
   Flex,
   HStack,
   Avatar,
-  Text
 } from '@chakra-ui/react';
 import { 
   ChevronLeftIcon,
