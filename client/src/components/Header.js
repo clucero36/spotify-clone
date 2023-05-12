@@ -30,7 +30,6 @@ const Header = props => {
         <Button p='0 .2rem 0 .2rem' borderRadius='10em' h='2rem'>
           <HStack>
             <Avatar size='xs' src={props.avatar} />
-            <Text fontSize='sm'>{props.user}</Text>
             <ChevronDownIcon w={3} h={3} />
           </HStack>
         </Button>

@@ -57,6 +57,30 @@ app.get('/callback', (req, res) => {
   }
   getToken(code).then((x) => {
     let params = {access_token: x.access_token, token_type:x.token_type}
-    res.redirect('https://spotifyditto.netlify.app/user?' + stringify(params));
+    res.redirect('http://localhost:3000/callback?' + stringify(params));
+    // https://spotifyditto.netlify.app/user?
+  })
+});
+
+
+app.get('/login', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  async function getToken() {
+    const buf = Buffer.from('f7601cac702b49db92c02678ab6c5177' + ':' + '78ba61007cf64462aa84551f740d6202', 'utf8')
+    const qString = stringify({
+      grant_type: 'client_credentials',
+    })
+    const response = await fetch('https://accounts.spotify.com/api/token?'+qString, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + buf.toString('base64'),
+      },
+    })
+    return await response.json();
+  }
+  getToken().then((x) => {
+    let params = {access_token: x.access_token, token_type:x.token_type}
+    res.send({url: 'http://localhost:3000/non-auth-callback?' + stringify(params)});
   })
 });
