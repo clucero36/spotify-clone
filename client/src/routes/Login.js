@@ -8,8 +8,9 @@ import {
 
 const Login = () => {
   // https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth
+  // http://localhost:/5000/userlogin
   async function reqAuth() {
-    axios.get('http://localhost:5000/userlogin').then((x) => {
+    axios.get('https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth').then((x) => {
       window.location.href=x.data.authUrl;
     })
   }
@@ -25,10 +26,10 @@ const Login = () => {
     <Box align='center' mt='4rem'>
       <Text fontSize='xl' p='5rem'>Spotify Clone</Text>
       <Text>For a personalized experience select "Request Auth". </Text>
-      <Text>For a light, non personalized experience, select "Standard".</Text>
+      <Text>Non personalized experience coming soon.</Text>
       <Box display='flex' justifyContent='center' gap='2' p='2rem'>
-        <Button onClick={reqAuth}>Request Auth</Button>
-        <Button onClick={nonAuth}>Standard</Button>
+        <Button onClick={reqAuth}>Authenticated User</Button>
+        <Button onClick={nonAuth}> Standard User</Button>
       </Box>
     </Box>
   )
