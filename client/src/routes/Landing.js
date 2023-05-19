@@ -50,7 +50,6 @@ const Landing = () => {
     getData()
   }, [accessToken, tokenType])
 
-  console.log("Landing Rerendered")
   if (userProfile !== null && userRecents !== null && 
       userPlaylists !== null && artists !== null &&
       rnbAlbums !== null) {

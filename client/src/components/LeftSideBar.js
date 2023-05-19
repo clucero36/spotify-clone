@@ -15,7 +15,6 @@ import { VscLibrary } from "react-icons/vsc";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 
 const LeftSideBar = (props) => {
-  
   return (
     <Box p='.5rem 1rem .5rem 1rem' h='100vh' sx={{ position: 'sticky', top: '0', }}>
       {/* Top Section of Sidebar */}
@@ -53,7 +52,6 @@ const LeftSideBar = (props) => {
       <VStack align='left' mt='1rem'>
         <Playlists items={props.playlists} />
       </VStack>
-
     </Box>
   )
 }

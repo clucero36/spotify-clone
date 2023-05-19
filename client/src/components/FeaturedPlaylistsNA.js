@@ -1,17 +1,19 @@
 import React from 'react';
 import {
+  Text,
   HStack,
   VStack,
-  Text,
+  Box,
   Spacer,
-  Box
 } from '@chakra-ui/react';
 import MusicCard from './MusicCard';
 
-const MusicList = props => {
 
-  const renderedAlbums = props.albums.map((album) => {
-    return <MusicCard key={album.id} image={album.images[0].url} title={album.name} subtext={album.artists[0].name}/>
+const FeaturedPlaylistsNA = (props) => {
+
+  console.log(props.playlists);
+  const renderedPlaylists = props.playlists.map((playlist) => {
+    return <MusicCard key={playlist.id} image={playlist.images[0].url} title={playlist.name} subtext={playlist.description}/>
   })
 
   return (
@@ -22,10 +24,10 @@ const MusicList = props => {
         <Text display={['none', 'none', 'block']} fontWeight='bold' fontSize='xs' color='gray.300'>SEE ALL</Text>
       </HStack>
       <Box display='flex' gap={['.5rem', '.5rem', '2rem']} >
-        {renderedAlbums}
+        {renderedPlaylists}
       </Box>
     </VStack>
-  )
+  );
 }
 
-export default MusicList;
+export default FeaturedPlaylistsNA;

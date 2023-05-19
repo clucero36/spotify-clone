@@ -7,24 +7,24 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-const MusicCard = (props) => {
+const MusicCard = ({image, title, subtext}) => {
 
   return (
     <Box
       p={['.5rem', '.5rem', '1rem', '1rem', '1rem']} 
-      h={['13rem', '13rem', '17rem']} 
-      minW={['9rem', '9rem', '13rem']} 
-      bgColor={['none', 'none', 'gray.900']}
+      maxH={['13rem', '13rem', '17rem']} 
+      w={['9rem', '9rem', '11.25rem']} 
+      bgColor={['none', 'none', 'RGBA(7, 7, 7, 0.48)']}
       borderRadius='lg' 
       _hover={{backgroundColor: 'gray.700'}}
     >
-      <VStack>
-        <Box boxShadow='dark-lg'>
-          <Image src={props.album.images[0].url} boxSize={['150px', '150px', '170px']} />
+      <VStack gap='1rem'>
+        <Box boxShadow='dark-lg' >
+          <Image src={image} />
         </Box>
-        <Box w='100%' >
-          <Text fontWeight='bold' fontSize='sm'>{props.album.name}</Text>
-          <Text fontSize='sm'>{props.album.artists[0].name}</Text>
+        <Box w='100%'>
+          <Text pb='8px' fontWeight='bold' fontSize='sm'>{title}</Text>
+          <Text noOfLines={2} fontSize='sm' color='RGBA(255, 255, 255, 0.64)'>{subtext}</Text>
         </Box>
       </VStack>
     </Box>

@@ -1,44 +1,55 @@
-import { React, useContext } from 'react';
+import { React, useContext, useState, useEffect } from 'react';
 import { Routes } from 'react-router-dom';
 import {
   Box,
 } from '@chakra-ui/react'
-import Header from '../components/Header';
-import RightSideBar from '../components/RightSideBar';
 import { TokenContext } from '../Context';
+import { 
+  getFeaturedPlaylists,
+} from '../apis/spotify'
+import Header from '../components/Header';
+import LeftSideBarNA from '../components/LeftSideBarNA';
+import FeaturedPlaylistsNA from '../components/FeaturedPlaylistsNA';
 
 const NonAuthLanding = () => {
   const { value, value2 } = useContext(TokenContext);
   const [accessToken] = value;
   const [tokenType] = value2;
 
-  console.log("Non Auth Landing Rerendered")
-  if (accessToken && tokenType) {
+  const [featuredPlaylists, setFeaturedPlaylists] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      getFeaturedPlaylists(accessToken, tokenType).then((result) => {
+        setFeaturedPlaylists(result)
+      })
+    }
+    getData()
+  }, [accessToken, tokenType]);
+
+  if (featuredPlaylists !== null) {
     return(
       <>
-        <Box display='flex'>
+        <Box display='flex' >
           <Box 
             display={['none', 'none', 'block', 'block', 'block']}
             bg='black'
-            w='12%'
           >
+            <LeftSideBarNA />
           </Box>
           <Box 
-            w={['100%', '100%', '80%']} 
-            bgGradient='linear(to-b, purple.900 1%, black 99%)'
-            h='100%'
+            backgroundColor='RGBA(12, 12, 12, 0.80)'
+            width='90%'
           >
             <Header 
               avatar={'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
             />
+            <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
             <Routes>
             </Routes>
           </Box>
-          <Box display={['none', 'none', 'block', 'block', 'block']} w='12%' bg='black'>
-            <RightSideBar />
-          </Box>
         </Box>
-        <Box w='100%' pos='sticky' bottom='0px'>
+        <Box pos='sticky' bottom='0px'>
         </Box>
       </>
     )

@@ -110,3 +110,19 @@ export async function getRnbAlbums(token, type) {
   )
   return response.data;
 }
+
+// client-credentials requests
+export async function getFeaturedPlaylists(token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = '/browse/featured-playlists?limit=8'
+  const response = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  return response.data;
+}
