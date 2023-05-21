@@ -30,8 +30,10 @@ const NonAuthLanding = () => {
   if (featuredPlaylists !== null) {
     return(
       <>
-        <Box display='flex' >
+        <Box display='flex' justifyContent='space-around'>
           <Box 
+            w='12%'
+            minW='190px'
             display={['none', 'none', 'block', 'block', 'block']}
             bg='black'
           >
@@ -39,11 +41,12 @@ const NonAuthLanding = () => {
           </Box>
           <Box 
             backgroundColor='RGBA(12, 12, 12, 0.80)'
-            width='90%'
+            width='88%'
           >
             <Header 
               avatar={'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
             />
+            <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
             <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
             <Routes>
             </Routes>

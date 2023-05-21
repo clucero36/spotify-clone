@@ -16,8 +16,8 @@ import {
 
 const Header = props => {
   return (
-    <Box p='.5rem 2rem 10px 2rem' backgroundColor='RGBA(2, 2, 2, 0.48)' >
-      <Flex align='center' justify='space-between'>
+    <Box p='.5rem 2rem 18px 2rem' backgroundColor='RGBA(2, 2, 2, 0.48)' >
+      <Flex align='center' justify='space-between' mt='.5rem'>
         <HStack>
           <Button borderRadius='full' h='2rem' w='1.25rem'>
             <ChevronLeftIcon w={6} h={6} />

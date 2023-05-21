@@ -119,7 +119,7 @@ export async function getFeaturedPlaylists(token, type) {
       'Authorization': type + ' ' + token,
     }
   }
-  const endp = '/browse/featured-playlists?limit=8'
+  const endp = '/browse/featured-playlists'
   const response = await axios.get(
     baseURI + endp,
     headers,
