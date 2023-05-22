@@ -2,16 +2,13 @@ import React from 'react';
 
 import {
   Box,
-  Flex,
   HStack,
   VStack,
   Text,
   Divider,
   Spacer,
-  IconButton,
   Image
 } from '@chakra-ui/react';
-import { MdPhone } from "react-icons/md";
 
 const Footer = () => {
   return (
