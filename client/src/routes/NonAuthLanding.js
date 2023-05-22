@@ -1,5 +1,4 @@
 import { React, useContext, useState, useEffect } from 'react';
-import { Routes } from 'react-router-dom';
 import {
   Box,
 } from '@chakra-ui/react'
@@ -31,7 +30,7 @@ const NonAuthLanding = () => {
   if (featuredPlaylists !== null) {
     return(
       <>
-        <Box display='flex' bg='black'>
+        <Box display='flex' bg='black' minW='490px'>
           <Box 
             w='12%'
             minW='190px'
@@ -46,7 +45,7 @@ const NonAuthLanding = () => {
             display='flex' 
             flexDir='column' 
             backgroundColor='RGBA(12, 12, 12, 0.80)'
-            width='88%'
+            width={['100%', '100%', '88%']}
           >
             <Box >
               <Box top='0px' pos='sticky'>
@@ -57,8 +56,6 @@ const NonAuthLanding = () => {
               <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
               <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
               <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
-              <Routes>
-              </Routes>
             </Box>
             <Box >
               <Footer />

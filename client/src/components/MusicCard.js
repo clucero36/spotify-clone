@@ -13,6 +13,7 @@ const MusicCard = ({image, title, subtext}) => {
     <Box
       p='1rem'
       maxW='13rem'
+      minW='9rem'
       bgColor={['none', 'none', 'RGBA(7, 7, 7, 0.48)']}
       borderRadius='lg' 
       _hover={{backgroundColor: 'RGBA(41, 41, 41, 0.28)'}}

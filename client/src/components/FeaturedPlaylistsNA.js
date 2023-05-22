@@ -26,7 +26,7 @@ const FeaturedPlaylistsNA = (props) => {
     const eightCardWitdhMax = window.matchMedia("(min-width: 1850px)");
     eightCardWitdhMax.addEventListener("change", toEightHandler);
 
-    const sevenCardWidthMax = window.matchMedia("(min-width: 1680px) and (max-width: 1850px)");
+    const sevenCardWidthMax = window.matchMedia("(min-width: 1680px)");
     sevenCardWidthMax.addEventListener( "change", toSevenHandler)
 
     const sixCardWidthMax = window.matchMedia("(min-width: 1600px)");
