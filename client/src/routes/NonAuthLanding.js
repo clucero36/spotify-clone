@@ -10,6 +10,7 @@ import {
 import Header from '../components/Header';
 import LeftSideBarNA from '../components/LeftSideBarNA';
 import FeaturedPlaylistsNA from '../components/FeaturedPlaylistsNA';
+import Footer from '../components/Footer';
 
 const NonAuthLanding = () => {
   const { value, value2 } = useContext(TokenContext);
@@ -30,29 +31,39 @@ const NonAuthLanding = () => {
   if (featuredPlaylists !== null) {
     return(
       <>
-        <Box display='flex' justifyContent='space-around'>
+        <Box display='flex' bg='black'>
           <Box 
             w='12%'
             minW='190px'
+            h='100vh'
+            top='0px'
+            pos='sticky'
             display={['none', 'none', 'block', 'block', 'block']}
-            bg='black'
           >
             <LeftSideBarNA />
           </Box>
           <Box 
+            display='flex' 
+            flexDir='column' 
             backgroundColor='RGBA(12, 12, 12, 0.80)'
             width='88%'
           >
-            <Header 
-              avatar={'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
-            />
-            <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
-            <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
-            <Routes>
-            </Routes>
+            <Box >
+              <Box top='0px' pos='sticky'>
+                <Header 
+                  avatar={'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
+                />
+              </Box>
+              <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
+              <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
+              <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
+              <Routes>
+              </Routes>
+            </Box>
+            <Box >
+              <Footer />
+            </Box>
           </Box>
-        </Box>
-        <Box pos='sticky' bottom='0px'>
         </Box>
       </>
     )

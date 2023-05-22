@@ -60,13 +60,13 @@ const FeaturedPlaylistsNA = (props) => {
   });
 
   return (
-    <VStack p={['1rem', '1rem', '2rem']} align='left' >
+    <VStack p='.5rem 2rem' align='left' >
       <HStack>
         <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Alternative R&B Forever</Text>
         <Spacer />
         <Text display={['none', 'none', 'block']} fontWeight='bold' fontSize='xs' color='gray.300'>SEE ALL</Text>
       </HStack>
-      <Box display='flex' gap='1rem' w='100%' justifyContent='space-between'>
+      <Box display='flex' gap='.5rem' w='100%' justifyContent='space-between'>
         {renderedPlaylists}
       </Box>
     </VStack>

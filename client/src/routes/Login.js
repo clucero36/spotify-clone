@@ -4,11 +4,11 @@ import {
   Box,
   Button,
   Text,
+  Divider,
 } from '@chakra-ui/react';
 
 const Login = () => {
-  // https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth
-  // http://localhost:/5000/userlogin
+
   async function reqAuth() {
     axios.get('https://us-central1-spotify-82254.cloudfunctions.net/requestSpotifyUserAuth').then((x) => {
       window.location.href=x.data.authUrl;
@@ -16,21 +16,21 @@ const Login = () => {
   }
 
   async function nonAuth() {
-    axios.get('http://localhost:5000/login').then((x) => {
-      let url = x.data.url;
-      window.location.href=url;
+    axios.get('https://us-central1-spotify-82254.cloudfunctions.net/clientCredentialsAuth').then((x) => {
+      window.location.href=x.data.url;
     })
   }
 
   return (
-    <Box align='center' mt='4rem'>
+    <Box align='center' m='4rem auto' w='50%'>
       <Text fontSize='xl' p='5rem'>Spotify Clone</Text>
-      <Text>For a personalized experience select "Request Auth". </Text>
-      <Text>Non personalized experience coming soon.</Text>
-      <Box display='flex' justifyContent='center' gap='2' p='2rem'>
-        <Button onClick={reqAuth}>Authenticated User</Button>
-        <Button onClick={nonAuth}> Standard User</Button>
-      </Box>
+      <Text>"Standard User" showcases a clone of the spotify webplayer @ https://open.spotify.com. </Text>
+      <Text >The app is still in development. I'm currently exploring nested routes and reusability. </Text>
+      <Button onClick={nonAuth} m='2rem 0'>Standard User</Button>
+      <Divider />
+      <Text mt='2rem'>"Request Auth" also showcases a clone of the webplayer, however it utilizes Spotify's</Text>
+      <Text> implementation of OAuth2.0 and is available to those I personally give access to. </Text>
+      <Button onClick={reqAuth} m='2rem 0'>Authenticated User</Button>
     </Box>
   )
 }

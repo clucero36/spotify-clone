@@ -18,7 +18,7 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 
 const LeftSideBarNA = () => {
   return (
-    <Box p='.5rem 2.5rem 1.5rem 1.5rem' h='100vh' sx={{ position: 'sticky', top: '0', }} >
+    <Box p='.5rem 2.5rem 1.5rem 1.5rem' h='100vh'>
       {/* Top Section of Sidebar */}
       <VStack align='left' spacing={10}  pb='1rem' h='100%' borderBottom='1px solid white'>
         {/* First 4 items on left sidebar */}
