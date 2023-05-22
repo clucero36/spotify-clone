@@ -15,9 +15,12 @@ Completed:
 
   -Liked Songs Page
 
+  -Develop unauthenticated viewing
+
 To Do: 
 
-  -Develop unauthenticated viewing
+  -Continue Development of Unauthenticated Views: reusability & nested routes
+
 
 Landing Page UI
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Landing_SreenShot.PNG "User Landing")
