@@ -19,7 +19,7 @@ Completed:
 
 To Do: 
 
-  -Continue Development of Unauthenticated Views: reusability & nested routes
+  -Continue Development of Unauthenticated Views: reusability, nested routes, & mobile viewing.
 
 
 Landing Page UI
