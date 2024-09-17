@@ -37,7 +37,7 @@ const NonAuthLanding = () => {
   if (featuredPlaylists !== null && browseCategories !== null) {
     return(
       <>
-        <Box display='flex' bg='black' minW='490px' h='100%'>
+        <Box display='flex' bg='black' minW='320px' h='100%'>
           <Box 
             w='12%'
             minW='190px'

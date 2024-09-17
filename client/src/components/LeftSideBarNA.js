@@ -18,7 +18,7 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 
 const LeftSideBarNA = () => {
   return (
-    <Box p='.5rem 2.5rem 1.5rem 1.5rem' h='100vh'>
+    <Box p='.5rem 2.5rem 1.5rem 1.5rem' h='100vh' color='gray.300'>
       {/* Top Section of Sidebar */}
       <VStack align='left' spacing={10}  pb='1rem' h='100%' borderBottom='1px solid white'>
         {/* First 4 items on left sidebar */}
@@ -67,7 +67,7 @@ const LeftSideBarNA = () => {
           <Text noOfLines={1} fontSize='xs'>Your Privacy Choices</Text>
           <Text noOfLines={1} fontSize='xs'>Cookies</Text>
         </VStack>
-        <Button leftIcon={<IoIosGlobe />} w='75%' borderRadius='xl'>English</Button>
+        <Button leftIcon={<IoIosGlobe />} w='75%' borderRadius='xl' color='gray.800'>English</Button>
       </VStack>
     </Box>
   )

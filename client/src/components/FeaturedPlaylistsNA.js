@@ -22,9 +22,9 @@ const FeaturedPlaylistsNA = (props) => {
   });
 
   return (
-    <VStack p='.5rem 2rem' align='left'>
+    <VStack p={['.5rem','.5rem 2rem']} align='left'>
       <HStack>
-        <Text fontWeight='bold' fontSize='lg' pb='.5rem'>Featured Playlists</Text>
+        <Text fontWeight='bold' fontSize='lg' pb='.5rem' color='gray.300'>Featured Playlists</Text>
         <Spacer />
         <Text display={['none', 'none', 'block']} fontWeight='bold' fontSize='xs' color='gray.300'>SEE ALL</Text>
       </HStack>
