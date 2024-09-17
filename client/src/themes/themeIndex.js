@@ -3,7 +3,7 @@ import { BoxStyles as Box } from './components/box';
 
 export const overrides = extendTheme({
   initialColorMode: 'dark',
-  useSystemColorMode: true,
+  useSystemColorMode: false,
 
   components: {
     Box,
@@ -11,6 +11,6 @@ export const overrides = extendTheme({
   
   config: {
     initialColorMode: 'dark',
-    useSystemColorMode: true,
+    useSystemColorMode: false,
   }
 })
