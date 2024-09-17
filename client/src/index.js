@@ -10,6 +10,7 @@ import Callback from './routes/Callback';
 import Context from './Context'
 import NonAuthLanding from './routes/NonAuthLanding';
 import NonAuthCallback from './routes/NonAuthCallback';
+import PlaylistTracks from './routes/PlaylistTracks';
 
 ReactDOM.render(
   <ChakraProvider theme={overrides}>
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Route path='/user/*' element={<Landing />} />
           <Route path='/callback' element={<Callback />} />
           <Route path='/spotify/*' element={<NonAuthLanding />} />
+          <Route path='/playlist-tracks/*' element={<PlaylistTracks />} />
           <Route path='/non-auth-callback/*' element={<NonAuthCallback />} />
         </Routes>
       </BrowserRouter>

@@ -119,10 +119,55 @@ export async function getFeaturedPlaylists(token, type) {
       'Authorization': type + ' ' + token,
     }
   }
-  const endp = '/browse/featured-playlists'
+  const endp = '/browse/featured-playlists?limit=14'
+  const response = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  console.log(response.data);
+  return response.data;
+}
+
+export async function getBrowseCategories(token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = '/browse/categories?limit=14&offset=1'
   const response = await axios.get(
     baseURI + endp,
     headers,
   )
   return response.data;
+}
+
+export async function getPlaylistTracks(id, token, type, listType) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  let endp = ''
+  if (listType === 'ft') {
+    endp = `/playlists/${id}/tracks?limit=50`;
+    const res = await axios.get(
+      baseURI + endp,
+      headers
+    )
+
+    return res.data;
+  }
+  else { // listType === 'cat'
+    endp = `/browse/categories/${id}/playlists`;
+  }
+  const playlistsResponse = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  const playlistUrl = playlistsResponse.data.playlists.items[1].tracks.href + '?limit=50';
+  const playlistTracksResponse = await axios.get(playlistUrl, headers);
+  return playlistTracksResponse.data;
 }

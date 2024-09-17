@@ -9,22 +9,22 @@ import {
   Flex,
 } from '@chakra-ui/react'
 
-const Tracks = ({likedTracks}) => {
+const Tracks = ({tracks}) => {
 
-  let renderedTracks = likedTracks.map((track, index) => {
+  let renderedTracks = tracks.map((track, index) => {
     return <TrackCard key={index} track={track} index={index}/>
   })
 
   return (
     <VStack w='95%' m='0 auto' gap={4} >
-      <Grid color='gray.400' templateColumns='repeat(40, 1fr)' gap={2} borderBottom='1px solid gray'>
+      <Grid w={['100%', '95%']} color='gray.400' templateColumns={['repeat(10, 1fr)','repeat(40, 1fr)']} gap={2} borderBottom='1px solid gray'>
         <GridItem colSpan={1}>#</GridItem>
-        <GridItem colSpan={15}>TITLE</GridItem>
-        <GridItem colStart={20} colSpan={9}>ALBUM</GridItem>
-        <GridItem colStart={30} colSpan={10}>DATE ADDED</GridItem>
-        <GridItem colSpan={1}>Time</GridItem>
+        <GridItem colSpan={[9,15]}>TITLE</GridItem>
+        <GridItem display={['none', 'block']} colStart={20} colSpan={9}>ALBUM</GridItem>
+        <GridItem display={['none', 'block']} colStart={30} colSpan={10}>DATE ADDED</GridItem>
+        <GridItem display={['none', 'block']} colSpan={1}>Time</GridItem>
       </Grid>
-      <Grid color='gray.400' templateColumns='repeat(40, 1fr)' gap={3}>
+      <Grid w={['100%', '98%', '94%']} color='gray.400' templateColumns={['repeat(10, 1fr)','repeat(40, 1fr)']} gap={3}>
         {renderedTracks}
       </Grid>
     </VStack>
@@ -37,24 +37,23 @@ const TrackCard = ({track, index}) => {
   if (typeof(date) !== 'string') {
     date = date.toString().concat(' ', 'days ago');
   }
-  console.log(track)
   return (
     <>
       <GridItem colSpan={1} pt='7px'>
         {index+1}
       </GridItem>
-      <GridItem colSpan={15}>
+      <GridItem colSpan={[9, 15]}>
         <HStack align='left'>
           <Image boxSize={10} src={track.track.album.images[0].url} />
           <Flex direction='column' gap={0} align='left'>
-            <Text fontSize='xs' isTruncated>{track.track.name}</Text>
+            <Text fontSize='xs'>{track.track.name}</Text>
             <Text fontSize='xs' isTruncated>{track.track.artists[0].name}</Text>
           </Flex>
         </HStack>
       </GridItem>
-      <GridItem colStart={20} colSpan={9} isTruncated>{track.track.album.name}</GridItem>
-      <GridItem colStart={30} colSpan={10}>{date}</GridItem>
-      <GridItem colSpan={1}>{time}</GridItem>
+      <GridItem display={['none', 'block']} fontSize='xs' colStart={20} colSpan={9} isTruncated>{track.track.album.name}</GridItem>
+      <GridItem display={['none', 'block']} fontSize='xs' colStart={30} colSpan={10}>{date}</GridItem>
+      <GridItem display={['none', 'block']} fontSize='xs' colSpan={1}>{time}</GridItem>
     </>
   )
 }
