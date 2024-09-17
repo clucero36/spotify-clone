@@ -28,7 +28,7 @@ const FeaturedPlaylistsNA = (props) => {
         <Spacer />
         <Text display={['none', 'none', 'block']} fontWeight='bold' fontSize='xs' color='gray.300'>SEE ALL</Text>
       </HStack>
-      <Box display='flex' gap='.5rem' w='100%' justifyContent='space-between' flexWrap='wrap' overflow='hidden'>
+      <Box display='flex' gap='.5rem' w='100%' justifyContent='center' flexWrap='wrap' overflow='hidden'>
         {renderedPlaylists}
       </Box>
     </VStack>

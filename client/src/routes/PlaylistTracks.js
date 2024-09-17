@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { TokenContext } from '../Context';
-import { getPlaylistTracks } from '../apis/spotify';
+import { getPlaylistTracks, getPlaylistImage, getCategoryPlaylistImage } from '../apis/spotify';
 import { useSearchParams } from 'react-router-dom';
 import Tracks from '../components/Tracks';
 
@@ -17,11 +17,21 @@ import {
   MenuItem,
   Button,
   Flex,
+  Image
 } from '@chakra-ui/react';
 import { FiArrowDownCircle, FiChevronDown } from "react-icons/fi";
 import { BiPlayCircle } from "react-icons/bi";
-import { AiFillHeart } from "react-icons/ai";
 
+// This route is reached when a user clicks on a Featured Playlist or a Browse Category
+// A Featured Playlist is just that, a playlist
+// a Browse Category is a list of playlists. A Browse Category of "New Arrivals" provides a list of New Arrivals Playlists
+// 
+// When a user clicks on a Featured Playlist searchParam('ft'): minimal work is done
+// When a user clicks on a Browse Category searchParam('cat'), we grab the second playlist in the list of playlists: a little bit more work in done.
+//
+// A majority of this work is taken care of in /apis/spotify:
+// we pass the searchParam('type') to getPlaylistTracks to handle the extra work needed for type 'cat'
+// we use an if {} in our effect to grab the correct image for this routes page
 
 const PlaylistTracks = () => {
 
@@ -30,33 +40,47 @@ const PlaylistTracks = () => {
   const [tokenType] = value2;
 
   const [searchParams] = useSearchParams();
-  const listType = searchParams.get('type')
+  const listType = searchParams.get('type');
+  const id = searchParams.get('id');
 
   const [playlistTracks, setPlaylistTracks] = useState(null);
+  const [playlistImage, setPlaylistImage] = useState(null);
   const [sort, setSort] = useState('Date Added')
 
   useEffect(() => {
     const getTracks = async () => {
-      getPlaylistTracks(searchParams.get('id'), accessToken, tokenType, listType).then((result) => {
-        setPlaylistTracks(result)
+      getPlaylistTracks(id, accessToken, tokenType, listType).then((result) => {
+        setPlaylistTracks(result);
       });
+      if (listType === 'ft') {
+        getPlaylistImage(id, accessToken, tokenType).then((result) => {
+          console.log(result);
+          setPlaylistImage(result);
+        })
+      }
+      else { // listType === 'cat'
+        getCategoryPlaylistImage(id, accessToken, tokenType).then((result) => {
+          console.log(result);
+          setPlaylistImage(result);
+        })
+      }
     };
 
     getTracks();
-  }, [accessToken, tokenType, searchParams, listType])
+  }, [accessToken, tokenType, id, listType])
 
-  if (playlistTracks !== null) {
+  if (playlistTracks !== null && playlistImage !== null) {
     return (
       <Box>
-        <Box h='15rem'>
+        <Box h='15rem' bgGradient='linear(to-b, #111111 10%, purple.800 100%)'>
           <HStack h='100%' gap={15} ml='1rem'>
             <Flex boxSize={200} boxShadow='dark-lg' align='center'>
-              <Icon w='10%' m='0 auto' as={AiFillHeart} boxSize='101' color='white'/>
+              <Image src={playlistImage.url}/>
             </Flex>
             <VStack align='left' ml='0' h='50%' gap={35}>
               <Box>
-                <Text>Playlist</Text>
-                <Heading size='3xl'>{searchParams.get('name')}</Heading>
+                <Text color='gray.300'>Playlist</Text>
+                <Heading size='3xl' color='gray.300'>{searchParams.get('name')}</Heading>
               </Box>
             </VStack>
           </HStack>

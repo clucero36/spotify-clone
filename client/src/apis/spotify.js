@@ -124,7 +124,6 @@ export async function getFeaturedPlaylists(token, type) {
     baseURI + endp,
     headers,
   )
-  console.log(response.data);
   return response.data;
 }
 
@@ -151,23 +150,60 @@ export async function getPlaylistTracks(id, token, type, listType) {
     }
   }
   let endp = ''
+
   if (listType === 'ft') {
     endp = `/playlists/${id}/tracks?limit=50`;
     const res = await axios.get(
       baseURI + endp,
       headers
     )
-
     return res.data;
   }
-  else { // listType === 'cat'
+
+  else if (listType === 'cat') {
     endp = `/browse/categories/${id}/playlists`;
+    const playlistsResponse = await axios.get(
+      baseURI + endp,
+      headers,
+    )
+    const playlistUrl = playlistsResponse.data.playlists.items[0].tracks.href + '?limit=50';
+    const playlistTracksResponse = await axios.get(
+      playlistUrl,
+      headers
+    );
+    return playlistTracksResponse.data;
   }
-  const playlistsResponse = await axios.get(
+  else
+    return null;
+}
+
+export async function getPlaylistImage(id, token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = `/playlists/${id}`;
+
+  const response = await axios.get(
     baseURI + endp,
     headers,
   )
-  const playlistUrl = playlistsResponse.data.playlists.items[1].tracks.href + '?limit=50';
-  const playlistTracksResponse = await axios.get(playlistUrl, headers);
-  return playlistTracksResponse.data;
+  return response.data.images[0];
+}
+
+export async function getCategoryPlaylistImage(category_id, token, type) {
+  const headers =  {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': type + ' ' + token,
+    }
+  }
+  const endp = `/browse/categories/${category_id}/playlists`;
+  const res = await axios.get(
+    baseURI + endp,
+    headers,
+  )
+  return res.data.playlists.items[0].images[0];
 }
