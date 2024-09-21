@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link as routerLink} from 'react-router-dom';
+
 import {
   Box,
   VStack,
@@ -17,6 +18,7 @@ import { VscLibrary } from "react-icons/vsc";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 
 const LeftSideBarNA = () => {
+  
   return (
     <Box p='.5rem 2.5rem 1.5rem 1.5rem' h='100vh' color='gray.300'>
       {/* Top Section of Sidebar */}
@@ -26,7 +28,9 @@ const LeftSideBarNA = () => {
           <Image src='Spotify_Logo_CMYK_White.png' m='1rem 0'/>
           <HStack>
             <Icon w={6} h={6} as={IoIosHome} />
-            <Text>Home</Text>
+            <Link to='/spotify' as={routerLink} >
+              <Text>Home</Text>
+            </Link>
           </HStack>
           <HStack>
             <Icon w={6} h={6} as={BiSearch} />

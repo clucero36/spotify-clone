@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
   Box,
@@ -15,14 +16,16 @@ import {
 
 
 const Header = props => {
+  const navigate = useNavigate();
+  
   return (
-    <Box p='.5rem 2rem 18px 2rem' backgroundColor='RGBA(2, 2, 2, 0.48)' >
+    <Box p='1rem' backgroundColor='RGBA(2, 2, 2, 0.48)' >
       <Flex align='center' justify='space-between' mt='.5rem'>
         <HStack>
-          <Button borderRadius='full' h='2rem' w='1.25rem'>
+          <Button onClick={() => navigate(-1)} borderRadius='full' h='2rem' w='1.25rem'>
             <ChevronLeftIcon w={6} h={6} />
           </Button>
-          <Button borderRadius='full'  h='2rem' w='1.25rem'>
+          <Button onClick={() => navigate(+1)} borderRadius='full'  h='2rem' w='1.25rem'>
             <ChevronRightIcon w={6} h={6} />
           </Button>
         </HStack>
