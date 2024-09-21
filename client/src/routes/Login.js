@@ -16,7 +16,7 @@ const Login = () => {
   }
 
   async function nonAuth() {
-    axios.get('https://us-central1-spotify-82254.cloudfunctions.net/clientCredentialsAuth').then((x) => {
+    axios.get('http://127.0.0.1:5001/spotify-82254/us-central1/clientCredentialsAuth').then((x) => {
       window.location.href=x.data.url;
     })
   }

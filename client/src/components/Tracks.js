@@ -17,7 +17,7 @@ const Tracks = ({tracks}) => {
 
   return (
     <VStack w='95%' m='0 auto' gap={4} >
-      <Grid w={['100%', '95%']} color='gray.400' templateColumns={['repeat(10, 1fr)','repeat(40, 1fr)']} gap={2} borderBottom='1px solid gray'>
+      <Grid mb='1rem' w={['100%', '95%']} color='gray.400' templateColumns={['repeat(10, 1fr)','repeat(40, 1fr)']} gap={2} borderBottom='1px solid gray'>
         <GridItem colSpan={1}>#</GridItem>
         <GridItem colSpan={[9,15]}>TITLE</GridItem>
         <GridItem display={['none', 'block']} colStart={20} colSpan={9}>ALBUM</GridItem>
