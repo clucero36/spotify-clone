@@ -77,7 +77,7 @@ const PlaylistTracks = () => {
           </Box>
         </Box>
         <Box w='100%' pt='1rem' bgGradient='linear(to-t, #111111 90%, purple.800 100%)'>
-          <VStack>
+          <VStack pb='20px'>
             <HStack w='97%' m='0 auto' justify='space-between'>
               <HStack gap={5}>
                 <Icon boxSize={75} as={BiPlayCircle} color='green.700'/>

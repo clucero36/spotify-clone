@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Box,
   VStack,
@@ -8,6 +7,7 @@ import {
   Spacer,
   Image
 } from '@chakra-ui/react';
+import { Gi3DStairs } from "react-icons/gi";
 
 const Footer = () => {
   return (
@@ -40,7 +40,14 @@ const Footer = () => {
         </Box>
       </Box>
       <Divider />
-      <Text color='RGBA(255, 255, 255, 0.64)' p='2.5rem 1rem 5rem 1rem'>© 2023 Spotify AB</Text>
+      <Box display='flex' flexDir={['column', 'row']} justifyContent='space-between' >
+        <Text align={['center', 'left']} color='RGBA(255, 255, 255, 0.64)' p='.5rem'>© 2024 Spotify AB</Text>
+        <Text display='flex' justifyContent='center' alignItems='center' align={['center', 'left']} color='RGBA(255, 255, 255, 0.64)' p='.5rem'>
+          Made by 
+          <Box ml='3px' mr='1.5px'><Gi3DStairs/></Box>
+          Luis Lucero
+        </Text>
+      </Box>
     </Box>
   )
 }

@@ -19,7 +19,7 @@ const Header = props => {
   const navigate = useNavigate();
   
   return (
-    <Box p='.5rem 2rem 18px 2rem' backgroundColor='RGBA(2, 2, 2, 0.48)' >
+    <Box p='1rem' backgroundColor='RGBA(2, 2, 2, 0.48)' >
       <Flex align='center' justify='space-between' mt='.5rem'>
         <HStack>
           <Button onClick={() => navigate(-1)} borderRadius='full' h='2rem' w='1.25rem'>
