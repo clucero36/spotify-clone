@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { TokenContext } from '../Context';
-import { getPlaylistTracks, getPlaylistImage, getCategoryPlaylistImage } from '../apis/spotify';
+import { getPlaylistTracks, getPlaylistImage } from '../apis/spotify';
 import { useSearchParams } from 'react-router-dom';
 import Tracks from '../components/Tracks';
 
@@ -40,7 +40,6 @@ const PlaylistTracks = () => {
   const [tokenType] = value2;
 
   const [searchParams] = useSearchParams();
-  const listType = searchParams.get('type');
   const id = searchParams.get('id');
 
   const [playlistTracks, setPlaylistTracks] = useState(null);
@@ -49,41 +48,33 @@ const PlaylistTracks = () => {
 
   useEffect(() => {
     const getTracks = async () => {
-      getPlaylistTracks(id, accessToken, tokenType, listType).then((result) => {
+      getPlaylistTracks(id, accessToken, tokenType).then((result) => {
         setPlaylistTracks(result);
       });
-      if (listType === 'ft') {
-        getPlaylistImage(id, accessToken, tokenType).then((result) => {
-          console.log(result);
-          setPlaylistImage(result);
-        })
-      }
-      else { // listType === 'cat'
-        getCategoryPlaylistImage(id, accessToken, tokenType).then((result) => {
-          console.log(result);
-          setPlaylistImage(result);
-        })
-      }
+      getPlaylistImage(id, accessToken, tokenType).then((result) => {
+        console.log(result);
+        setPlaylistImage(result);
+      })
     };
 
     getTracks();
-  }, [accessToken, tokenType, id, listType])
+  }, [accessToken, tokenType, id])
 
   if (playlistTracks !== null && playlistImage !== null) {
     return (
       <Box>
-        <Box h='15rem' bgGradient='linear(to-b, #111111 10%, purple.800 100%)'>
-          <HStack h='100%' gap={15} ml='1rem'>
-            <Flex boxSize={200} boxShadow='dark-lg' align='center'>
-              <Image src={playlistImage.url}/>
-            </Flex>
-            <VStack align='left' ml='0' h='50%' gap={35}>
+        <Box bgGradient='linear(to-b, #111111 10%, purple.800 100%)'>
+          <Box display='flex' flexDir={['column', 'row']} gap={15} p='15px'>
+            <Box align='center'>
+              <Image boxSize={200} src={playlistImage.url}/>
+            </Box>
+            <VStack align='left' justify='flex-end'>
               <Box>
-                <Text color='gray.300'>Playlist</Text>
-                <Heading size='3xl' color='gray.300'>{searchParams.get('name')}</Heading>
+                <Text size='xs' color='gray.300'>Public Playlist</Text>
+                <Heading size='2xl' color='gray.300'>{searchParams.get('name')}</Heading>
               </Box>
             </VStack>
-          </HStack>
+          </Box>
         </Box>
         <Box w='100%' pt='1rem' bgGradient='linear(to-t, #111111 90%, purple.800 100%)'>
           <VStack>

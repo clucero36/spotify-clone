@@ -15,7 +15,7 @@ const FeaturedPlaylistsNA = (props) => {
 
   const renderedPlaylists = props.playlists.map((playlist) => {
       return (
-        <Link key={playlist.id} to={`/playlist-tracks?name=${playlist.name}&id=${playlist.id}&type=ft`} as={routerLink}>
+        <Link key={playlist.id} to={`/spotify/playlist-tracks?name=${playlist.name}&id=${playlist.id}&type=ft`} as={routerLink}>
           <MusicCard image={playlist.images[0].url} title={playlist.name} subtext={playlist.description}/>
         </Link>
       )

@@ -1,13 +1,15 @@
 import { React, useContext, useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { TokenContext } from '../Context';
 import { 
   getFeaturedPlaylists,
   getBrowseCategories
 } from '../apis/spotify'
-import Header from '../components/Header';
+import BrowseCategoriesPlaylistsNA from './BrowseCategoriesPlaylistsNA';
+import PlaylistTracks from './PlaylistTracks';
 import LeftSideBarNA from '../components/LeftSideBarNA';
-import FeaturedPlaylistsNA from '../components/FeaturedPlaylistsNA';
-import BrowseCategoriesNA from '../components/BrowseCategoriesNA';
+import SpotifyHome from '../components/SpotifyHome';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 import {
   Box,
@@ -29,7 +31,6 @@ const NonAuthLanding = () => {
       getBrowseCategories(accessToken, tokenType).then((result) => {
         setBrowseCategories(result)
       })
-
     }
     getData()
   }, [accessToken, tokenType]);
@@ -54,16 +55,37 @@ const NonAuthLanding = () => {
             backgroundColor='RGBA(12, 12, 12, 0.80)'
             width={['100%', '100%', '88%']}
           >
-            <Box>
-              <Box top='0px'>
-                <Header 
-                  avatar={'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
+            <Box top='0px'>
+              <Header 
+                avatar={'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'} 
+              />
+              <Routes>
+                <Route 
+                  path='/' 
+                  element={
+                    <SpotifyHome 
+                      featuredPlaylists={featuredPlaylists}
+                      browseCategories={browseCategories}
+                    />
+                  } 
                 />
-              </Box>
-              <FeaturedPlaylistsNA playlists={featuredPlaylists.playlists.items}/>
-              <BrowseCategoriesNA categories={browseCategories.categories.items} />
+                <Route 
+                  path='/category-playlists' 
+                  element={
+                    <BrowseCategoriesPlaylistsNA 
+                    />
+                  } 
+                />
+                <Route 
+                  path='/playlist-tracks' 
+                  element={
+                    <PlaylistTracks 
+                    />
+                  } 
+                />
+              </Routes>
             </Box>
-            <Box >
+            <Box>
               <Footer />
             </Box>
           </Box>

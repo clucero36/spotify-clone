@@ -10,12 +10,11 @@ import {
 } from '@chakra-ui/react';
 import MusicCard from './MusicCard';
 
-
 const BrowseCategoriesNA = (props) => {
 
   const renderedCategories = props.categories.map((category) => {
     return (
-      <Link key={category.id} to={`/playlist-tracks?name=${category.name}&id=${category.id}&type=cat`} as={routerLink}>
+      <Link key={category.id} to={`/spotify/category-playlists?id=${category.id}`} as={routerLink}>
         <MusicCard image={category.icons[0].url} title={category.name} />
       </Link>
     )
