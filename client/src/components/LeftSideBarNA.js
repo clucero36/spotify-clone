@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link as routerLink} from 'react-router-dom';
-
 import {
   Box,
   VStack,
@@ -49,9 +48,7 @@ const LeftSideBarNA = () => {
           </HStack>
           <HStack>
             <Icon w={6} h={6} as={BiHeartSquare} />
-            <Link to='#' as={routerLink} >
-              <Text fontSize='sm' noOfLines={1}>Liked Songs</Text>
-            </Link>
+            <Text fontSize='sm' noOfLines={1}>Liked Songs</Text>
           </HStack>
         </VStack>
         <Spacer />

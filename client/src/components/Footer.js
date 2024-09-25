@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link as routerLink} from 'react-router-dom';
+
 import {
   Box,
   VStack,
   Text,
   Divider,
   Spacer,
-  Image
+  Image,
+  Link
 } from '@chakra-ui/react';
 import { Gi3DStairs } from "react-icons/gi";
 
@@ -15,22 +18,42 @@ const Footer = () => {
       <Box display='flex' gap={['2.5rem','5rem']} align='top' pb='2rem' flexWrap='wrap'>
         <VStack align='left' gap='.25rem'>
           <Text color='white' fontWeight='bold'>Company</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)' >About</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Jobs</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>For The Record</Text>
+          <Link to='/spotify/about' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)' >About</Text>
+          </Link>
+          <Link to='/spotify/jobs' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Jobs</Text>
+          </Link>
+          <Link to='/spotify/for-the-record' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>For The Record</Text>
+          </Link>
         </VStack>
         <VStack align='left' gap='.25rem'>
           <Text color='white' fontWeight='bold'>Communities</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>For Artists</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Advertising</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Investors</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Vendors</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Spotify for Work</Text>
+          <Link to='/spotify/for-artists' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>For Artists</Text>
+          </Link>
+          <Link to='/spotify/for-the-record' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Advertising</Text>
+          </Link>
+          <Link to='/spotify/investors' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Investors</Text>
+          </Link>
+          <Link to='/spotify/vendors' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Vendors</Text>
+          </Link>
+          <Link to='/spotify/spotify-for-work' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Spotify for Work</Text>
+          </Link>
         </VStack>
         <VStack align='left' gap='.25rem'>
           <Text color='white' fontWeight='bold'>Useful Links</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Support</Text>
-          <Text color='RGBA(255, 255, 255, 0.64)'>Free Mobile App</Text>
+          <Link to='/spotify/support' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Support</Text>
+          </Link>
+          <Link to='/spotify/mobile-app' as={routerLink} >
+            <Text color='RGBA(255, 255, 255, 0.64)'>Free Mobile App</Text>
+          </Link>
         </VStack>
         <Spacer />
         <Box align='top' gap='2rem' display='flex'>
