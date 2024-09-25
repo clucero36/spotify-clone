@@ -18,14 +18,15 @@ const About = () => {
       <Text w='70%' mb='1rem'>The implementation of the web player can be found on my GitHub account.</Text>
       <Text><em>Technical Features:</em></Text>
       <Box ml='1.5rem' mt='1.5rem'>
-        <ul >
+        <ul>
+          <li>Google Cloud Functions</li>
+          <li>Express Local Development Server</li>
           <li>React Router</li>
           <li>Axios</li>
           <li>Context API</li>
-          <li>Cloud Functions</li>
           <li>0Auth2.0 API</li>
           <li>Data Access Layer</li>
-          <li>Custom Theming</li>
+          <li>Chakra UI Custom Theming</li>
         </ul>
       </Box>
     </Box>

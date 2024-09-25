@@ -19,11 +19,20 @@ Completed:
 
 To Do: 
 
-  -Continue Development of Unauthenticated Views: reusability, nested routes, & mobile viewing.
+  -Continue Development of Unauthenticated Views: 'See All' functionality.
 
+NON AUTH UI:
 
-Landing Page UI
+![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Non_Auth_Landing.PNG "Non Auth Landing")
+
+![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Category_Playlists.PNG "Category Playlists")
+
+![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Playlist_Tracks.PNG "Playlist Tracks")
+
+AUTH UI:
+
+Landing Page
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Landing_SreenShot.PNG "User Landing")
 
-Liked Songs UI
+Liked Songs
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/LikedSongs_ScreenShot.PNG "User Landing")

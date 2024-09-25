@@ -42,7 +42,6 @@ const PlaylistTracks = () => {
         setPlaylistTracks(result);
       });
       getPlaylistImage(id, accessToken, tokenType).then((result) => {
-        console.log(result);
         setPlaylistImage(result);
       })
     };
