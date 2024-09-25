@@ -8,6 +8,7 @@ import {
 import BrowseCategoriesPlaylistsNA from './BrowseCategoriesPlaylistsNA';
 import PlaylistTracks from './PlaylistTracks';
 import About from './About';
+import AuthReq from './AuthReq';
 import FooterPage from '../components/FooterPage';
 import LeftSideBarNA from '../components/LeftSideBarNA';
 import SpotifyHome from '../components/SpotifyHome';
@@ -91,7 +92,10 @@ const NonAuthLanding = () => {
                     <About />
                   } 
                 />
-                <Route path='/jobs' element={ <FooterPage title={'Jobs'} /> } />
+                <Route path='/liked-songs' element={ <AuthReq /> }/>
+                <Route path='/your-library' element={ <AuthReq /> }/>
+                <Route path='/create-playlist' element={ <AuthReq /> }/>
+                <Route path='/jobs' element={ <FooterPage title={'Jobs'} />} />
                 <Route path='/for-the-record' element={ <FooterPage title={'For The Record'} /> } />
                 <Route path='/for-artists' element={ <FooterPage title={'For Artists'} />} />                       
                 <Route path='/advertising' element={ <FooterPage title={'Advertising'} />} />
@@ -100,6 +104,13 @@ const NonAuthLanding = () => {
                 <Route path='/spotify-for-work' element={ <FooterPage title={'Spotify For Work'}/>} />
                 <Route path='/support' element={ <FooterPage title={'Support'}/>} />
                 <Route path='/mobile-app' element={ <FooterPage title={'Free Mobile App'}/>} />
+                <Route path='/legal' element={ <FooterPage title={'Legal'}/>} />
+                <Route path='/privacy-center' element={ <FooterPage title={'Privacy Center'}/>} />
+                <Route path='/privacy-policy' element={ <FooterPage title={'Privacy Policy'}/>} />
+                <Route path='/cookies' element={ <FooterPage title={'Cookies'}/>} />
+                <Route path='/about-ads' element={ <FooterPage title={'About Ads'}/>} />
+                <Route path='/accessibility' element={ <FooterPage title={'Accessibility'}/>} />
+                <Route path='/privacy-choices' element={ <FooterPage title={'Your Privacy Choices'}/>} />
               </Routes>
             </Box>
             <Box>
