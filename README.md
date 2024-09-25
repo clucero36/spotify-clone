@@ -23,10 +23,13 @@ To Do:
 
 NON AUTH UI:
 
+Non Auth Landing
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Non_Auth_Landing.PNG "Non Auth Landing")
 
+Category Playlists
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Category_Playlists.PNG "Category Playlists")
 
+Playlist Tracks
 ![Alt text](https://github.com/clucero36/spotify-clone/blob/main/client/public/Playlist_Tracks.PNG "Playlist Tracks")
 
 AUTH UI:
