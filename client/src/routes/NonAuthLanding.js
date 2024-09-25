@@ -7,6 +7,8 @@ import {
 } from '../apis/spotify'
 import BrowseCategoriesPlaylistsNA from './BrowseCategoriesPlaylistsNA';
 import PlaylistTracks from './PlaylistTracks';
+import About from './About';
+import FooterPage from '../components/FooterPage';
 import LeftSideBarNA from '../components/LeftSideBarNA';
 import SpotifyHome from '../components/SpotifyHome';
 import Header from '../components/Header';
@@ -83,6 +85,21 @@ const NonAuthLanding = () => {
                     />
                   } 
                 />
+                <Route 
+                  path='/about' 
+                  element={
+                    <About />
+                  } 
+                />
+                <Route path='/jobs' element={ <FooterPage title={'Jobs'} /> } />
+                <Route path='/for-the-record' element={ <FooterPage title={'For The Record'} /> } />
+                <Route path='/for-artists' element={ <FooterPage title={'For Artists'} />} />                       
+                <Route path='/advertising' element={ <FooterPage title={'Advertising'} />} />
+                <Route path='/investors' element={ <FooterPage title={'Investors'} />} />
+                <Route path='/vendors' element={ <FooterPage title={'Investors'} />} />
+                <Route path='/spotify-for-work' element={ <FooterPage title={'Spotify For Work'}/>} />
+                <Route path='/support' element={ <FooterPage title={'Support'}/>} />
+                <Route path='/mobile-app' element={ <FooterPage title={'Free Mobile App'}/>} />
               </Routes>
             </Box>
             <Box>

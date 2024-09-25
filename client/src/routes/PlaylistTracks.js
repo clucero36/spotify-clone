@@ -23,16 +23,6 @@ import { FiArrowDownCircle, FiChevronDown } from "react-icons/fi";
 import { BiPlayCircle } from "react-icons/bi";
 
 // This route is reached when a user clicks on a Featured Playlist or a Browse Category
-// A Featured Playlist is just that, a playlist
-// a Browse Category is a list of playlists. A Browse Category of "New Arrivals" provides a list of New Arrivals Playlists
-// 
-// When a user clicks on a Featured Playlist searchParam('ft'): minimal work is done
-// When a user clicks on a Browse Category searchParam('cat'), we grab the second playlist in the list of playlists: a little bit more work in done.
-//
-// A majority of this work is taken care of in /apis/spotify:
-// we pass the searchParam('type') to getPlaylistTracks to handle the extra work needed for type 'cat'
-// we use an if {} in our effect to grab the correct image for this routes page
-
 const PlaylistTracks = () => {
 
   const { value, value2 } = useContext(TokenContext);
