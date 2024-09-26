@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { ColorModeScript, ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { overrides } from './themes/themeIndex';
@@ -12,8 +12,10 @@ import Context from './Context'
 import App from './App';
 
 
+const container = document.getElementById('root');
+const root = createRoot(container);
 
-ReactDOM.render(
+root.render(
   <ChakraProvider theme={overrides}>
     <Context>
       <ColorModeScript initialColorMode={overrides.config.initialColorMode}/>
@@ -29,7 +31,6 @@ ReactDOM.render(
       </BrowserRouter>
     </Context>
   </ChakraProvider>,
-
-  document.getElementById('root')
 );
+
 

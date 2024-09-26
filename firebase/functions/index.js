@@ -49,7 +49,7 @@ exports.clientCredentialsAuth = functions.https.onRequest((req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
 
   async function getToken() {
-    const buf = Buffer.from(functions.config().spotify.client_id + ':' + functions.config().spotify.client_secret, 'utf8')
+    const buf = Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`, 'utf8')
     const qString = querystring.stringify({
       grant_type: 'client_credentials',
     })
@@ -60,7 +60,7 @@ exports.clientCredentialsAuth = functions.https.onRequest((req, res) => {
   }
   getToken().then((x) => {
     let params = {access_token: x.access_token, token_type:x.token_type}
-    res.send({url: 'https://spotifyditto.netlify.app/non-auth-callback?' + querystring.stringify(params)});
+    res.send({url: 'http://localhost:3000/non-auth-callback?' + querystring.stringify(params)});
   }).catch(function (error) {
     res.send(error);
   })
